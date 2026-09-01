@@ -12,18 +12,37 @@
   // из своей картинки сама. Контент накладывается поверх — см. blocks/NOTES.md
   &__bg {
     display: block;
+
+    // На 375 высоту задаёт контент, поэтому фон уходит за него подложкой
+    @include xs-block {
+      position: absolute;
+      inset: 0;
+    }
   }
 
   &__bg-image {
     display: block;
     width: 100%;
     height: auto;
+
+    @include xs-block {
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__content {
     position: absolute;
     inset: 0;
     display: flex;
+
+    // Именно relative, а не static: фон здесь абсолютный и, будучи
+    // позиционированным, рисуется поверх непозиционированного соседа.
+    // Со static контент уезжает под фон и пропадает с экрана.
+    @include xs-block {
+      position: relative;
+      inset: auto;
+    }
   }
 
   &__inner {
@@ -33,6 +52,31 @@
     height: 100%;
     padding-top: calc(var(--header-height) + var(--Gaps-Gap-100));
     padding-bottom: var(--Gaps-Gap-75);
+
+    // На 375 макет устроен иначе: не наложение на фон, а обычный поток —
+    // текст, картинка, полоса соцсетей вплотную друг за другом. Высоту секции
+    // задаёт контент (20 + 216 + 282 + 44 = 562), а не фоновая картинка,
+    // и снизу отступа нет: полоса упирается в нижний край.
+    @include xs-block {
+      justify-content: flex-start;
+      height: auto;
+      padding-bottom: 0;
+    }
+  }
+
+  // Ноутбук с лентой скриншотов. На 768 и выше он впечатан в фон, а на 375
+  // вынесен отдельным изображением и лежит в потоке между текстом и соцсетями.
+  // Фоном его там не сделать: он занимает собственную высоту.
+  &__image {
+    display: none;
+
+    @include xs-block {
+      display: block;
+      width: calc(100% + var(--container-padding) * 2);
+      max-width: none;
+      height: auto;
+      margin-inline: calc(-1 * var(--container-padding));
+    }
   }
 
   &__body {
@@ -53,6 +97,17 @@
 
   &__title {
     color: var(--White);
+  }
+
+  // Кнопка первого экрана задана в макете явным размером: 196x49 на 1920 и
+  // 164x40 на 768 и 375. Общая .btn собирается из паддингов и на мелких полосах
+  // выходит ниже — здесь она перебивается локально, для этой одной кнопки.
+  // Размеры для полос lg и md из макета не сняты.
+  &__button {
+    @include sm-block {
+      width: 164px;
+      height: 40px;
+    }
   }
 
   &__text {
@@ -99,23 +154,30 @@
     gap: var(--Gaps-Gap-10);
 
     @include xs-block {
-      position: relative;
       flex-direction: row;
       flex-grow: 1;
       align-items: center;
       justify-content: space-between;
 
-      // Разделитель между ссылками. Отдельным элементом в разметке не выведен:
-      // это декор, и в макете он ровно посередине строки.
+      // Разделитель — не абсолют, а полноценный элемент строки: тогда
+      // space-between сам ставит его ровно посередине промежутка между
+      // ссылками. Абсолютом по центру списка он уезжает, потому что ссылки
+      // разной ширины и центр списка не совпадает с центром промежутка.
       &::before {
         content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        order: 1;
+        flex-shrink: 0;
         width: 1px;
         height: 16.875px;
         background: var(--White);
-        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__socials-item {
+    @include xs-block {
+      &:last-child {
+        order: 2;
       }
     }
   }

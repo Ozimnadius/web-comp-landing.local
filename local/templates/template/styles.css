@@ -934,10 +934,23 @@ a {
 .hero__bg {
   display: block;
 }
+@media screen and (max-width: 767.98px) {
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+  }
+}
 .hero__bg-image {
   display: block;
   width: 100%;
   height: auto;
+}
+@media screen and (max-width: 767.98px) {
+  .hero__bg-image {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 .hero__content {
   position: absolute;
@@ -945,6 +958,12 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+@media screen and (max-width: 767.98px) {
+  .hero__content {
+    position: relative;
+    inset: auto;
+  }
 }
 .hero__inner {
   display: -webkit-box;
@@ -960,6 +979,27 @@ a {
   height: 100%;
   padding-top: calc(var(--header-height) + var(--Gaps-Gap-100));
   padding-bottom: var(--Gaps-Gap-75);
+}
+@media screen and (max-width: 767.98px) {
+  .hero__inner {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    height: auto;
+    padding-bottom: 0;
+  }
+}
+.hero__image {
+  display: none;
+}
+@media screen and (max-width: 767.98px) {
+  .hero__image {
+    display: block;
+    width: calc(100% + var(--container-padding) * 2);
+    max-width: none;
+    height: auto;
+    margin-inline: calc(-1 * var(--container-padding));
+  }
 }
 .hero__body {
   display: -webkit-box;
@@ -987,6 +1027,12 @@ a {
 }
 .hero__title {
   color: var(--White);
+}
+@media screen and (max-width: 1199.98px) {
+  .hero__button {
+    width: 164px;
+    height: 40px;
+  }
 }
 .hero__text {
   font-family: var(--Font-Family-Font);
@@ -1053,7 +1099,6 @@ a {
 }
 @media screen and (max-width: 767.98px) {
   .hero__socials {
-    position: relative;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -1070,14 +1115,21 @@ a {
   }
   .hero__socials::before {
     content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     width: 1px;
     height: 16.875px;
     background: var(--White);
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .hero__socials-item:last-child {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
   }
 }
 .hero__social {
