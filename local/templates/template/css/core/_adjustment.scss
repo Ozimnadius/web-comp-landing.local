@@ -1,53 +1,14 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+// Правки поверх normalize.css и ozimnad-reset.
+// Всё, что вендорный ресет уже делает — box-sizing, обнуление отступов,
+// списки, img/picture/svg, font и color на полях, prefers-reduced-motion —
+// здесь не повторяется. Дублирование тут означало бы, что при обновлении
+// пакета правило разъедется молча.
 
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-img,
-picture,
+// Ресет обнуляет только img, picture и svg
 video,
-canvas,
-svg {
+canvas {
   display: block;
   max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
-
-button {
-  border: 0;
-  background: none;
-}
-
-a {
-  text-decoration: none;
 }
 
 address {

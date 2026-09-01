@@ -1,6 +1,10 @@
+@use "../../../node_modules/normalize.css/normalize";
+@use "../../../node_modules/ozimnad-reset/reset";
+
 @use "css/core/variables";
 @use "css/core/fonts";
 @use "css/core/adjustment";
 @use "css/core/globals";
 @use "css/ui";
+
 @use "css/blocks";
