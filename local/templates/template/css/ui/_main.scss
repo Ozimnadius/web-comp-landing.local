@@ -7,12 +7,13 @@
   margin-inline: auto;
 }
 
+// Текстовая ссылка, hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
 a {
   @include tr;
 
   color: inherit;
 
   @include hover {
-    color: var(--accent-deep);
+    color: var(--Orange);
   }
 }

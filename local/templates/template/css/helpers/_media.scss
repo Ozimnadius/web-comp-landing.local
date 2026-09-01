@@ -1,14 +1,8 @@
-$break_xxl: 1919.98px;
-$break_xl: 1599.98px;
-$break_lg: 1439.98px;
-$break_md: 1199.98px;
-$break_sm: 767.98px;
-
-@mixin xxl-block() {
-  @media screen and (max-width: $break_xxl) {
-    @content;
-  }
-}
+$break_xl: 1919.98px;
+$break_lg: 1599.98px;
+$break_md: 1439.98px;
+$break_sm: 1199.98px;
+$break_xs: 767.98px;
 
 @mixin xl-block() {
   @media screen and (max-width: $break_xl) {
@@ -30,6 +24,12 @@ $break_sm: 767.98px;
 
 @mixin sm-block() {
   @media screen and (max-width: $break_sm) {
+    @content;
+  }
+}
+
+@mixin xs-block() {
+  @media screen and (max-width: $break_xs) {
     @content;
   }
 }

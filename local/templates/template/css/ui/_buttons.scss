@@ -1,6 +1,8 @@
 @use "../helpers" as *;
 @use "typography" as *;
 
+// Кнопки: компоненты — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-1440, состояния hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
+
 @mixin btn {
   @include btn-uc-18;
   @include tr;
@@ -8,46 +10,49 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--gap-10);
+  gap: var(--Gaps-Gap-10);
   border: 1px solid transparent;
-  border-radius: var(--radius, var(--radius-100));
-  padding: var(--btn-padding, 15px var(--gap-40));
+  border-radius: var(--radius, var(--Radius-Radius-100));
+  padding: var(--btn-padding, 15px var(--Gaps-Gap-40));
   text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
 
+// Жёлтая заливка — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-1440, hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
 @mixin btn-primary {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--text);
+  border-color: var(--Yellow);
+  background: var(--Yellow);
+  color: var(--Black);
 
   @include hover {
-    border-color: var(--accent-hover);
-    background: var(--accent-hover);
+    border-color: var(--Yellow-Hover);
+    background: var(--Yellow-Hover);
   }
 }
 
+// Прозрачная с серой рамкой, в карточках тарифов — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-1440, hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
 @mixin btn-outline {
-  border-color: var(--border-strong);
+  border-color: var(--Grey-3);
   background: transparent;
-  color: var(--text);
+  color: var(--Black);
 
   @include hover {
-    border-color: var(--accent);
-    background: var(--accent);
+    border-color: var(--Yellow);
+    background: var(--Yellow);
   }
 }
 
+// Белая рамка на тёмном фоне hero — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=3791-713
 @mixin btn-invert {
-  border-color: var(--text-invert);
+  border-color: var(--White);
   background: transparent;
-  color: var(--text-invert);
+  color: var(--White);
 
   @include hover {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: var(--text);
+    border-color: var(--Yellow);
+    background: var(--Yellow);
+    color: var(--Black);
   }
 }
 

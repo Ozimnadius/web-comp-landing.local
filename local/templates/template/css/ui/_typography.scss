@@ -1,100 +1,116 @@
 @use "../helpers" as *;
 
+// Типографика и цвета — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
+// Кегль приходит переменной и меняется по режимам сам:
+// медиазапросов внутри миксинов нет и быть не должно.
+
+// Heading 1 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin h1 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-xxl);
+  font-size: var(--Font-Size-Font-Size-XXL);
   line-height: 1;
   letter-spacing: 0;
 }
 
+// Heading 2 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin h2 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-xl);
+  font-size: var(--Font-Size-Font-Size-XL);
   line-height: 1;
   letter-spacing: 0;
 }
 
+// Heading 3 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin h3 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-x);
+  font-size: var(--Font-Size-Font-Size-X);
   line-height: 1;
   letter-spacing: 0;
 }
 
+// Price L — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin price-l {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 500;
-  font-size: var(--font-size-price);
+  font-size: var(--Font-Size-Price-Size);
   line-height: 1;
   letter-spacing: 0;
 }
 
+// Text 32 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin text-32 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-l);
+  font-size: var(--Font-Size-Font-Size-L);
   line-height: 1;
   letter-spacing: 0;
 }
 
+// Tagline 24 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin tagline-24 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-m);
+  font-size: var(--Font-Size-Font-Size-M);
   line-height: 1.42;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
+// Text 24 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin text-24 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 300;
-  font-size: var(--font-size-m);
+  font-size: var(--Font-Size-Font-Size-M);
   line-height: 1.28;
   letter-spacing: 0;
 }
 
+// Link 24 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin link-24 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-m);
+  font-size: var(--Font-Size-Font-Size-M);
   line-height: 1.42;
   letter-spacing: 0;
   text-decoration: underline;
 }
 
+// Text 18 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin text-18 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 300;
-  font-size: var(--font-size-s);
+  font-size: var(--Font-Size-Font-Size-S);
   line-height: 1.42;
   letter-spacing: 0;
 }
 
+// Text Btn UC 18 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin btn-uc-18 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 500;
-  font-size: var(--font-size-s);
+  font-size: var(--Font-Size-Font-Size-S);
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
+// Text 16 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin text-16 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-xs);
+  font-size: var(--Font-Size-Font-Size-XS);
   line-height: 1.42;
   letter-spacing: 0;
 }
 
+// Text 14 — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2484
 @mixin text-14 {
-  font-family: var(--font-main);
+  font-family: var(--Font-Family-Font);
   font-weight: 400;
-  font-size: var(--font-size-xxs);
+  font-size: var(--Font-Size-Font-Size-XXS);
   line-height: 1.42;
   letter-spacing: 0;
 }
