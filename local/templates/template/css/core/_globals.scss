@@ -14,9 +14,22 @@ body {
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  // Шапка лежит поверх первого экрана: в макете тёмный фон с эллипсами
+  // непрерывно идёт от нуля через шапку в hero, и разрезать его нельзя.
+  // Высота шапки при этом уезжает из потока — hero отбивает её сверху
+  // через --header-height.
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
 
   &__content {
     flex-grow: 1;

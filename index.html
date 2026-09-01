@@ -70,7 +70,51 @@
     <div class="wrapper__content">
 
         <main class="main">
-            <div class="main__hero"></div>
+            <div class="main__hero">
+                <section class="hero">
+                    <picture class="hero__bg">
+                        <source media="(max-width: 767.98px)" srcset="/upload/images/hero/bg-375.webp">
+                        <source media="(max-width: 1199.98px)" srcset="/upload/images/hero/bg-768.webp">
+                        <source media="(max-width: 1439.98px)" srcset="/upload/images/hero/bg-1200.webp">
+                        <source media="(max-width: 1599.98px)" srcset="/upload/images/hero/bg-1440.webp">
+                        <source media="(max-width: 1919.98px)" srcset="/upload/images/hero/bg-1600.webp">
+                        <img class="hero__bg-image" src="/upload/images/hero/bg-1920.webp" alt="" fetchpriority="high">
+                    </picture>
+
+                    <div class="hero__content">
+                        <div class="container">
+                            <div class="hero__inner">
+
+                                <div class="hero__body">
+                                    <h1 class="hero__title">Создаем сайты, которые приносят реальных клиентов</h1>
+                                    <p class="hero__text">Уже более 10 лет наша компания занимается разработкой сайтов любой сложности. За это время мы запустили более 400 проектов и знаем, как сделать так, чтобы сайт приносил реальные заявки.</p>
+                                    <a class="hero__button btn btn--primary" href="#contacts">Заказать сайт</a>
+                                </div>
+
+                                <div class="hero__footer">
+                                    <p class="hero__copyright">© 2026 ООО "ВЕБ-КОМП"</p>
+
+                                    <ul class="hero__socials">
+                                        <li class="hero__socials-item">
+                                            <a class="hero__social" href="#">
+                                                <span class="hero__social-text">Написать в Telegram</span>
+                                                <span class="hero__social-icon hero__social-icon--telegram" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                        <li class="hero__socials-item">
+                                            <a class="hero__social" href="#">
+                                                <span class="hero__social-text">Написать в Max</span>
+                                                <span class="hero__social-icon hero__social-icon--max" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <div class="main__metrics"></div>
             <div class="main__prices" id="prices"></div>
             <div class="main__advantages" id="advantages"></div>

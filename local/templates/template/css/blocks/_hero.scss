@@ -1,0 +1,149 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// hero — 1920 https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=3791-713
+//        768  https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5709-1542
+//        375  https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5715-2369
+
+.hero {
+  position: relative;
+
+  // Фон лежит в потоке и задаёт высоту секции: на каждой полосе она приходит
+  // из своей картинки сама. Контент накладывается поверх — см. blocks/NOTES.md
+  &__bg {
+    display: block;
+  }
+
+  &__bg-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: calc(var(--header-height) + var(--Gaps-Gap-100));
+    padding-bottom: var(--Gaps-Gap-75);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Gaps-Gap-40);
+    max-width: 700px;
+
+    @include sm-block {
+      max-width: 368px;
+    }
+
+    @include xs-block {
+      max-width: none;
+    }
+  }
+
+  &__title {
+    color: var(--White);
+  }
+
+  &__text {
+    @include text-18;
+
+    color: var(--White);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-40);
+
+    @include sm-block {
+      align-items: flex-end;
+    }
+
+    // На 375 строка соцсетей — самостоятельная полоса во всю ширину экрана
+    // со своим градиентом, поэтому она выходит из контейнера отрицательными
+    // полями. Оттенки градиента в коллекцию переменных не вынесены.
+    @include xs-block {
+      align-items: center;
+      margin-inline: calc(-1 * var(--container-padding));
+      padding: 10px var(--Gaps-Gap-100);
+      background-image: linear-gradient(98.15deg, #a98300 0%, #000000 86.68%);
+    }
+  }
+
+  &__copyright {
+    @include text-16;
+
+    color: var(--White);
+
+    @include xs-block {
+      display: none;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--Gaps-Gap-10);
+
+    @include xs-block {
+      position: relative;
+      flex-direction: row;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: space-between;
+
+      // Разделитель между ссылками. Отдельным элементом в разметке не выведен:
+      // это декор, и в макете он ровно посередине строки.
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1px;
+        height: 16.875px;
+        background: var(--White);
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__social {
+    @include text-18;
+
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    color: var(--White);
+  }
+
+  &__social-icon {
+    @include tr;
+
+    display: block;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+
+    &--telegram {
+      mask: url("/upload/images/icons/social-telegram.svg") center / contain no-repeat;
+    }
+
+    &--max {
+      mask: url("/upload/images/icons/social-max.svg") center / contain no-repeat;
+    }
+  }
+}
