@@ -8,11 +8,15 @@
 }
 
 // Текстовая ссылка, hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
+// Кнопка исключена намеренно: ссылка с классом .btn это компонент со своими
+// состояниями, и глобальный hover не должен перекрашивать её подпись.
 a {
   @include tr;
 
   color: inherit;
+}
 
+a:not(.btn) {
   @include hover {
     color: var(--Orange);
   }
