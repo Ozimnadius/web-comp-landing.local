@@ -63,7 +63,7 @@ $sg-radii: (
       content: "1920";
       color: var(--Yellow);
 
-      @include md-block {
+      @include lg-block {
         content: "1200";
       }
 

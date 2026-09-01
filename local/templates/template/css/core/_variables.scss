@@ -48,7 +48,7 @@
   --container-padding: var(--Gaps-Gap-75);
   --transition: 0.3s;
 
-  @include md-block {
+  @include lg-block {
     --Gaps-Gap-10: 8px;
     --Gaps-Gap-18: 14px;
     --Gaps-Gap-24: 20px;

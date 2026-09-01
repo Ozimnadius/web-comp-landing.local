@@ -444,7 +444,7 @@ button {
   --container-padding: var(--Gaps-Gap-75);
   --transition: 0.3s;
 }
-@media screen and (max-width: 1439.98px) {
+@media screen and (max-width: 1599.98px) {
   :root {
     --Gaps-Gap-10: 8px;
     --Gaps-Gap-18: 14px;
@@ -797,7 +797,7 @@ a {
   content: "1920";
   color: var(--Yellow);
 }
-@media screen and (max-width: 1439.98px) {
+@media screen and (max-width: 1599.98px) {
   .styleguide__mode::after {
     content: "1200";
   }
