@@ -1,0 +1,131 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// header — 1920 https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=3791-699
+//          768  https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5709-1528
+//          375  https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5715-2361
+
+.header {
+  position: relative;
+  z-index: 10;
+  padding-block: var(--Gaps-Gap-24);
+  backdrop-filter: blur(5px);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-40);
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+  }
+
+  &__burger {
+    display: none;
+    flex-shrink: 0;
+
+    @include sm-block {
+      display: block;
+    }
+  }
+
+  &__burger-icon {
+    @include tr;
+
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--White);
+    mask: url("/upload/images/icons/menu.svg") center / contain no-repeat;
+
+    @include hover {
+      background-color: var(--Orange);
+    }
+  }
+
+  &__logo {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &__logo-image {
+    width: 160px;
+    height: auto;
+
+    @include sm-block {
+      width: 120px;
+    }
+
+    @include xs-block {
+      width: 106.84px;
+    }
+  }
+
+  &__nav {
+    @include sm-block {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-40);
+  }
+
+  &__menu-link {
+    @include text-16;
+
+    color: var(--White);
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-40);
+  }
+
+  &__phone {
+    @include text-24;
+
+    display: flex;
+    align-items: center;
+    color: var(--White);
+    white-space: nowrap;
+  }
+
+  &__phone-icon {
+    @include tr;
+
+    display: none;
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask: url("/upload/images/icons/phone.svg") center / contain no-repeat;
+  }
+
+  &__phone-text {
+    @include xs-block {
+      display: none;
+    }
+  }
+
+  @include sm-block {
+    &__brand {
+      gap: 20px;
+    }
+  }
+
+  @include xs-block {
+    &__brand {
+      gap: 10px;
+    }
+
+    &__phone-icon {
+      display: block;
+    }
+  }
+}
