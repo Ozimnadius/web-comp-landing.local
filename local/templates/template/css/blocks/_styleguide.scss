@@ -1,0 +1,244 @@
+@use "../helpers" as *;
+
+// styleguide — служебная страница проверки дизайн-системы, в макете её нет
+// Модификаторы ниже собираются циклом: значения берутся переменными,
+// поэтому в разметке не нужно ни одного inline-стиля.
+
+$sg-colors: (
+  "black": var(--Black),
+  "white": var(--White),
+  "yellow": var(--Yellow),
+  "yellow-hover": var(--Yellow-Hover),
+  "orange": var(--Orange),
+  "grey": var(--Grey),
+  "grey-2": var(--Grey-2),
+  "grey-3": var(--Grey-3),
+  "grey-4": var(--Grey-4),
+  "grey-5": var(--Grey-5),
+);
+
+$sg-gaps: (
+  "100": var(--Gaps-Gap-100),
+  "75": var(--Gaps-Gap-75),
+  "40": var(--Gaps-Gap-40),
+  "24": var(--Gaps-Gap-24),
+  "18": var(--Gaps-Gap-18),
+  "10": var(--Gaps-Gap-10),
+);
+
+$sg-radii: (
+  "10": var(--Radius-Radius-10),
+  "16": var(--Radius-Radius-16),
+  "24": var(--Radius-Radius-24),
+  "100": var(--Radius-Radius-100),
+);
+
+.styleguide {
+  padding-block: var(--Gaps-Gap-100);
+
+  &__head {
+    margin-bottom: var(--Gaps-Gap-100);
+  }
+
+  &__title {
+    margin-bottom: var(--Gaps-Gap-24);
+  }
+
+  &__lead {
+    max-width: 60ch;
+    color: var(--Grey-5);
+  }
+
+  &__mode {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    margin-top: var(--Gaps-Gap-40);
+    border-radius: var(--Radius-Radius-100);
+    padding: var(--Gaps-Gap-10) var(--Gaps-Gap-24);
+    background: var(--Black);
+    color: var(--White);
+
+    &::after {
+      content: "1920";
+      color: var(--Yellow);
+
+      @include md-block {
+        content: "1200";
+      }
+
+      @include sm-block {
+        content: "768";
+      }
+
+      @include xs-block {
+        content: "375";
+      }
+    }
+  }
+
+  &__section {
+    margin-bottom: var(--Gaps-Gap-100);
+  }
+
+  &__section-title {
+    margin-bottom: var(--Gaps-Gap-40);
+    border-bottom: 1px solid var(--Grey-3);
+    padding-bottom: var(--Gaps-Gap-18);
+  }
+
+  &__note {
+    margin-top: var(--Gaps-Gap-24);
+    color: var(--Grey-5);
+  }
+
+  &__colors {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--Gaps-Gap-24);
+
+    @include sm-block {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include xs-block {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__swatch {
+    border: 1px solid var(--Grey-3);
+    border-radius: var(--Radius-Radius-16);
+    overflow: hidden;
+  }
+
+  &__swatch-color {
+    height: 88px;
+
+    @each $name, $value in $sg-colors {
+      &--#{$name} {
+        background: $value;
+      }
+    }
+  }
+
+  &__swatch-body {
+    padding: var(--Gaps-Gap-18);
+    background: var(--White);
+  }
+
+  &__swatch-name {
+    display: block;
+    word-break: break-all;
+  }
+
+  &__swatch-hex {
+    display: block;
+    margin-top: 4px;
+    color: var(--Grey-5);
+  }
+
+  &__type-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--Gaps-Gap-24);
+    align-items: baseline;
+    border-bottom: 1px solid var(--Grey-2);
+    padding-block: var(--Gaps-Gap-24);
+
+    @include sm-block {
+      grid-template-columns: 1fr;
+      gap: var(--Gaps-Gap-10);
+    }
+  }
+
+  &__type-meta {
+    color: var(--Grey-5);
+    word-break: break-all;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--Gaps-Gap-24);
+    align-items: center;
+  }
+
+  &__buttons--dark {
+    margin-top: var(--Gaps-Gap-24);
+    border-radius: var(--Radius-Radius-16);
+    padding: var(--Gaps-Gap-40);
+    background: var(--Black);
+  }
+
+  &__scale-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--Gaps-Gap-24);
+    align-items: center;
+    padding-block: var(--Gaps-Gap-10);
+
+    @include sm-block {
+      grid-template-columns: 140px 1fr;
+    }
+  }
+
+  &__scale-name {
+    color: var(--Grey-5);
+    word-break: break-all;
+  }
+
+  &__scale-bar {
+    height: 20px;
+    border-radius: var(--Radius-Radius-10);
+    background: var(--Yellow);
+
+    @each $name, $value in $sg-gaps {
+      &--#{$name} {
+        width: $value;
+      }
+    }
+  }
+
+  &__radii {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--Gaps-Gap-40);
+  }
+
+  &__radius {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid var(--Grey-3);
+    padding: var(--Gaps-Gap-10);
+    background: var(--White);
+
+    @each $name, $value in $sg-radii {
+      &--#{$name} {
+        border-radius: $value;
+      }
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  &__table th,
+  &__table td {
+    border-bottom: 1px solid var(--Grey-2);
+    padding: var(--Gaps-Gap-10) var(--Gaps-Gap-18);
+  }
+
+  &__table th {
+    color: var(--Grey-5);
+  }
+
+  &__table-active {
+    background: var(--Yellow);
+  }
+}
