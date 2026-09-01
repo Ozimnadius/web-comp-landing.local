@@ -1,0 +1,13 @@
+{
+  "name": "web-comp-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лендинг студии ВЕБ-КОМП. Сборка — Prepros, npm только объявляет фронтенд-библиотеки.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fancyapps/ui": "^6.1.14",
+    "normalize.css": "^8.0.1",
+    "ozimnad-reset": "^0.1.0",
+    "swiper": "^14.2.0"
+  }
+}
