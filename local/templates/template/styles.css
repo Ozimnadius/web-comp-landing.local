@@ -676,16 +676,20 @@ h3,
           justify-content: center;
   gap: var(--Gaps-Gap-10);
   border: 1px solid transparent;
-  border-radius: var(--radius, var(--Radius-Radius-100));
-  padding: var(--btn-padding, 15px var(--Gaps-Gap-40));
+  border-radius: var(--radius, 100vmax);
+  padding: var(--btn-padding, var(--Gaps-Gap-18) var(--Gaps-Gap-24));
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 .btn--primary {
   border-color: var(--Yellow);
   background: var(--Yellow);
   color: var(--Black);
+  -webkit-box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
+          box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
 }
 @media (any-hover: hover) {
   .btn--primary:hover {
@@ -700,7 +704,7 @@ h3,
   }
 }
 .btn--outline {
-  border-color: var(--Grey-3);
+  border-color: var(--Black);
   background: transparent;
   color: var(--Black);
 }

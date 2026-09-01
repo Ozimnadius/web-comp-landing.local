@@ -1,7 +1,10 @@
 @use "../helpers" as *;
 @use "typography" as *;
 
-// Кнопки: компоненты — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-1440, состояния hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
+// Кнопки. В макете у компонента два варианта:
+// Default — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=3714-464
+// Linear  — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=3718-519
+// Состояния hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
 
 @mixin btn {
   @include btn-uc-18;
@@ -12,18 +15,27 @@
   justify-content: center;
   gap: var(--Gaps-Gap-10);
   border: 1px solid transparent;
-  border-radius: var(--radius, var(--Radius-Radius-100));
-  padding: var(--btn-padding, 15px var(--Gaps-Gap-40));
+  border-radius: var(--radius, 100vmax);
+  padding: var(--btn-padding, var(--Gaps-Gap-18) var(--Gaps-Gap-24));
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+
+  // В макете кнопка 49px при кегле 18 и паддинге 18: Figma обрезает текстовый
+  // бокс по высоте прописных. Без обрезки строка занимает полный em-бокс и
+  // кнопка выходит на 54px. Где свойство ещё не поддержано, кнопка просто
+  // на 5px выше — вёрстка от этого не едет.
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 
-// Жёлтая заливка — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-1440, hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
+// Default: жёлтая заливка с тёплым свечением.
+// Тень в коллекцию переменных не вынесена, значения из макета как есть.
 @mixin btn-primary {
   border-color: var(--Yellow);
   background: var(--Yellow);
   color: var(--Black);
+  box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
 
   @include hover {
     border-color: var(--Yellow-Hover);
@@ -31,9 +43,10 @@
   }
 }
 
-// Прозрачная с серой рамкой, в карточках тарифов — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-1440, hover — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5751-2483
+// Linear на светлом фоне: чёрная рамка и чёрный текст.
+// Так сделана кнопка в карточке тарифа — узел 5702:331.
 @mixin btn-outline {
-  border-color: var(--Grey-3);
+  border-color: var(--Black);
   background: transparent;
   color: var(--Black);
 
@@ -43,7 +56,7 @@
   }
 }
 
-// Белая рамка на тёмном фоне hero — https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=3791-713
+// Linear на тёмном фоне: белая рамка и белый текст — исходный вариант 3718:519.
 @mixin btn-invert {
   border-color: var(--White);
   background: transparent;
