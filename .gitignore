@@ -1,2 +1,5 @@
 .claude/
 .osp/
+.idea/
+node_modules/
+docs/
