@@ -1,0 +1,151 @@
+@use "../helpers" as *;
+
+@mixin h1 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xxl);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@mixin h2 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@mixin h3 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-x);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@mixin price-l {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: var(--font-size-price);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@mixin text-32 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-l);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+@mixin tagline-24 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-m);
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+@mixin text-24 {
+  font-family: var(--font-main);
+  font-weight: 300;
+  font-size: var(--font-size-m);
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
+@mixin link-24 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-m);
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-decoration: underline;
+}
+
+@mixin text-18 {
+  font-family: var(--font-main);
+  font-weight: 300;
+  font-size: var(--font-size-s);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+@mixin btn-uc-18 {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: var(--font-size-s);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+@mixin text-16 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xs);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+@mixin text-14 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xxs);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+h1,
+.h1 {
+  @include h1;
+}
+
+h2,
+.h2 {
+  @include h2;
+}
+
+h3,
+.h3 {
+  @include h3;
+}
+
+.price-l {
+  @include price-l;
+}
+
+.text-32 {
+  @include text-32;
+}
+
+.tagline-24 {
+  @include tagline-24;
+}
+
+.text-24 {
+  @include text-24;
+}
+
+.link-24 {
+  @include link-24;
+}
+
+.text-18 {
+  @include text-18;
+}
+
+.btn-uc-18 {
+  @include btn-uc-18;
+}
+
+.text-16 {
+  @include text-16;
+}
+
+.text-14 {
+  @include text-14;
+}

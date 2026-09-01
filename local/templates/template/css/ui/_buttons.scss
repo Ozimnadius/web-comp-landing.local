@@ -1,0 +1,72 @@
+@use "../helpers" as *;
+@use "typography" as *;
+
+@mixin btn {
+  @include btn-uc-18;
+  @include tr;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-10);
+  border: 1px solid transparent;
+  border-radius: var(--radius, var(--radius-100));
+  padding: var(--btn-padding, 15px var(--gap-40));
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin btn-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--text);
+
+  @include hover {
+    border-color: var(--accent-hover);
+    background: var(--accent-hover);
+  }
+}
+
+@mixin btn-outline {
+  border-color: var(--border-strong);
+  background: transparent;
+  color: var(--text);
+
+  @include hover {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+}
+
+@mixin btn-invert {
+  border-color: var(--text-invert);
+  background: transparent;
+  color: var(--text-invert);
+
+  @include hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--text);
+  }
+}
+
+.btn {
+  @include btn;
+
+  &--primary {
+    @include btn-primary;
+  }
+
+  &--outline {
+    @include btn-outline;
+  }
+
+  &--invert {
+    @include btn-invert;
+  }
+
+  &--block {
+    width: 100%;
+  }
+}

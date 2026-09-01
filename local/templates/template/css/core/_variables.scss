@@ -1,0 +1,129 @@
+@use "../helpers" as *;
+
+:root {
+  --white: #ffffff;
+  --yellow: #ffc600;
+  --yellow-hover: #ffdb60;
+  --orange: #f2ad00;
+  --black: #14171c;
+  --grey: #f1f2f4;
+  --grey-2: #eaeaea;
+  --grey-3: #c5c5c5;
+  --grey-4: #b2b2b2;
+  --grey-5: #6c6c6c;
+
+  --gap-100: 100px;
+  --gap-75: 75px;
+  --gap-40: 40px;
+  --gap-24: 24px;
+  --gap-18: 18px;
+  --gap-10: 10px;
+
+  --font-size-xxl: 70px;
+  --font-size-xl: 54px;
+  --font-size-x: 42px;
+  --font-size-l: 32px;
+  --font-size-m: 24px;
+  --font-size-s: 18px;
+  --font-size-xs: 16px;
+  --font-size-xxs: 14px;
+  --font-size-xxxs: 12px;
+  --font-size-price: 42px;
+
+  --radius-100: 100px;
+  --radius-24: 24px;
+  --radius-16: 16px;
+  --radius-10: 10px;
+
+  --font-main: "Geologica", sans-serif;
+
+  --bg: var(--grey);
+  --bg-surface: var(--white);
+  --bg-dark: var(--black);
+  --bg-muted: var(--grey-2);
+
+  --text: var(--black);
+  --text-muted: var(--grey-5);
+  --text-soft: var(--grey-4);
+  --text-invert: var(--white);
+
+  --border: var(--grey-2);
+  --border-strong: var(--grey-3);
+
+  --accent: var(--yellow);
+  --accent-hover: var(--yellow-hover);
+  --accent-deep: var(--orange);
+
+  --container-width: 1770px;
+  --container-padding: var(--gap-75);
+
+  --font-size: var(--font-size-xs);
+  --font-weight: 400;
+  --line-height: 1.42;
+
+  --transition: 0.3s;
+
+  @include lg-block {
+    --gap-100: 60px;
+    --gap-75: 40px;
+    --gap-40: 30px;
+    --gap-24: 20px;
+    --gap-18: 14px;
+    --gap-10: 8px;
+
+    --font-size-xxl: 60px;
+    --font-size-xl: 40px;
+    --font-size-x: 36px;
+    --font-size-l: 24px;
+    --font-size-m: 18px;
+    --font-size-s: 16px;
+    --font-size-xs: 14px;
+    --font-size-xxs: 12px;
+    --font-size-xxxs: 10px;
+    --font-size-price: 36px;
+
+    --radius-24: 14px;
+    --radius-16: 12px;
+    --radius-10: 6px;
+  }
+
+  @include md-block {
+    --gap-100: 40px;
+    --gap-75: 30px;
+    --gap-40: 24px;
+    --gap-24: 16px;
+    --gap-18: 14px;
+    --gap-10: 8px;
+
+    --font-size-xxl: 36px;
+    --font-size-xl: 30px;
+    --font-size-x: 24px;
+    --font-size-l: 18px;
+    --font-size-m: 16px;
+    --font-size-s: 14px;
+    --font-size-xs: 12px;
+    --font-size-xxs: 10px;
+    --font-size-xxxs: 10px;
+    --font-size-price: 24px;
+  }
+
+  @include sm-block {
+    --gap-100: 20px;
+    --gap-75: 10px;
+    --gap-40: 16px;
+    --gap-24: 12px;
+    --gap-18: 10px;
+    --gap-10: 8px;
+
+    --font-size-xxl: 28px;
+    --font-size-xl: 24px;
+    --font-size-x: 20px;
+    --font-size-l: 16px;
+    --font-size-m: 14px;
+    --font-size-s: 12px;
+    --font-size-xs: 12px;
+    --font-size-xxs: 10px;
+    --font-size-xxxs: 10px;
+    --font-size-price: 24px;
+  }
+}

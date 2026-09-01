@@ -1,0 +1,416 @@
+:root {
+  --white: #ffffff;
+  --yellow: #ffc600;
+  --yellow-hover: #ffdb60;
+  --orange: #f2ad00;
+  --black: #14171c;
+  --grey: #f1f2f4;
+  --grey-2: #eaeaea;
+  --grey-3: #c5c5c5;
+  --grey-4: #b2b2b2;
+  --grey-5: #6c6c6c;
+  --gap-100: 100px;
+  --gap-75: 75px;
+  --gap-40: 40px;
+  --gap-24: 24px;
+  --gap-18: 18px;
+  --gap-10: 10px;
+  --font-size-xxl: 70px;
+  --font-size-xl: 54px;
+  --font-size-x: 42px;
+  --font-size-l: 32px;
+  --font-size-m: 24px;
+  --font-size-s: 18px;
+  --font-size-xs: 16px;
+  --font-size-xxs: 14px;
+  --font-size-xxxs: 12px;
+  --font-size-price: 42px;
+  --radius-100: 100px;
+  --radius-24: 24px;
+  --radius-16: 16px;
+  --radius-10: 10px;
+  --font-main: "Geologica", sans-serif;
+  --bg: var(--grey);
+  --bg-surface: var(--white);
+  --bg-dark: var(--black);
+  --bg-muted: var(--grey-2);
+  --text: var(--black);
+  --text-muted: var(--grey-5);
+  --text-soft: var(--grey-4);
+  --text-invert: var(--white);
+  --border: var(--grey-2);
+  --border-strong: var(--grey-3);
+  --accent: var(--yellow);
+  --accent-hover: var(--yellow-hover);
+  --accent-deep: var(--orange);
+  --container-width: 1770px;
+  --container-padding: var(--gap-75);
+  --font-size: var(--font-size-xs);
+  --font-weight: 400;
+  --line-height: 1.42;
+  --transition: 0.3s;
+}
+@media screen and (max-width: 1439.98px) {
+  :root {
+    --gap-100: 60px;
+    --gap-75: 40px;
+    --gap-40: 30px;
+    --gap-24: 20px;
+    --gap-18: 14px;
+    --gap-10: 8px;
+    --font-size-xxl: 60px;
+    --font-size-xl: 40px;
+    --font-size-x: 36px;
+    --font-size-l: 24px;
+    --font-size-m: 18px;
+    --font-size-s: 16px;
+    --font-size-xs: 14px;
+    --font-size-xxs: 12px;
+    --font-size-xxxs: 10px;
+    --font-size-price: 36px;
+    --radius-24: 14px;
+    --radius-16: 12px;
+    --radius-10: 6px;
+  }
+}
+@media screen and (max-width: 1199.98px) {
+  :root {
+    --gap-100: 40px;
+    --gap-75: 30px;
+    --gap-40: 24px;
+    --gap-24: 16px;
+    --gap-18: 14px;
+    --gap-10: 8px;
+    --font-size-xxl: 36px;
+    --font-size-xl: 30px;
+    --font-size-x: 24px;
+    --font-size-l: 18px;
+    --font-size-m: 16px;
+    --font-size-s: 14px;
+    --font-size-xs: 12px;
+    --font-size-xxs: 10px;
+    --font-size-xxxs: 10px;
+    --font-size-price: 24px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  :root {
+    --gap-100: 20px;
+    --gap-75: 10px;
+    --gap-40: 16px;
+    --gap-24: 12px;
+    --gap-18: 10px;
+    --gap-10: 8px;
+    --font-size-xxl: 28px;
+    --font-size-xl: 24px;
+    --font-size-x: 20px;
+    --font-size-l: 16px;
+    --font-size-m: 14px;
+    --font-size-s: 12px;
+    --font-size-xs: 12px;
+    --font-size-xxs: 10px;
+    --font-size-xxxs: 10px;
+    --font-size-price: 24px;
+  }
+}
+
+@font-face {
+  font-family: "Geologica";
+  src: url("../fonts/Geologica-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geologica";
+  src: url("../fonts/Geologica-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geologica";
+  src: url("../fonts/Geologica-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+address {
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.wrapper__content {
+  flex-grow: 1;
+}
+
+h1,
+.h1 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xxl);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+h2,
+.h2 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+h3,
+.h3 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-x);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.price-l {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: var(--font-size-price);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.text-32 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-l);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.tagline-24 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-m);
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.text-24 {
+  font-family: var(--font-main);
+  font-weight: 300;
+  font-size: var(--font-size-m);
+  line-height: 1.28;
+  letter-spacing: 0;
+}
+
+.link-24 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-m);
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-decoration: underline;
+}
+
+.text-18 {
+  font-family: var(--font-main);
+  font-weight: 300;
+  font-size: var(--font-size-s);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+.btn-uc-18 {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: var(--font-size-s);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.text-16 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xs);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+.text-14 {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: var(--font-size-xxs);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+.btn {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: var(--font-size-s);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-10);
+  border: 1px solid transparent;
+  border-radius: var(--radius, var(--radius-100));
+  padding: var(--btn-padding, 15px var(--gap-40));
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--text);
+}
+@media (any-hover: hover) {
+  .btn--primary:hover {
+    border-color: var(--accent-hover);
+    background: var(--accent-hover);
+  }
+}
+@media (any-hover: none) {
+  .btn--primary:active {
+    border-color: var(--accent-hover);
+    background: var(--accent-hover);
+  }
+}
+.btn--outline {
+  border-color: var(--border-strong);
+  background: transparent;
+  color: var(--text);
+}
+@media (any-hover: hover) {
+  .btn--outline:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+}
+@media (any-hover: none) {
+  .btn--outline:active {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+}
+.btn--invert {
+  border-color: var(--text-invert);
+  background: transparent;
+  color: var(--text-invert);
+}
+@media (any-hover: hover) {
+  .btn--invert:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--text);
+  }
+}
+@media (any-hover: none) {
+  .btn--invert:active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--text);
+  }
+}
+.btn--block {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  padding-inline: var(--container-padding);
+  margin-inline: auto;
+}
+
+a {
+  transition: var(--transition);
+  color: inherit;
+}
+@media (any-hover: hover) {
+  a:hover {
+    color: var(--accent-deep);
+  }
+}
+@media (any-hover: none) {
+  a:active {
+    color: var(--accent-deep);
+  }
+}
+
+/* main */

@@ -1,0 +1,18 @@
+@use "../helpers" as *;
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  padding-inline: var(--container-padding);
+  margin-inline: auto;
+}
+
+a {
+  @include tr;
+
+  color: inherit;
+
+  @include hover {
+    color: var(--accent-deep);
+  }
+}
