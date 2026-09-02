@@ -16,8 +16,8 @@
 | `icons/price-card-ellipse-1…2.svg` | `3791:822`, `3791:823` | эллипсы тёмной карточки тарифа |
 | `icons/social-telegram.svg` | `3791:729` | hero |
 | `icons/social-max.svg` | `3791:733` | hero |
-| `icons/arrow-up.svg` | `5715:2304` | «Наверх» в подвале |
-| `icons/footer-logo-watermark.svg` | `5715:2332` | вотермарк подвала |
+| `icons/arrow-up.svg` | `5715:2303` | «Наверх» в подвале, бокс 80×44,59 вместе с полями |
+| `icons/footer-logo-watermark.svg` | `5715:2333` | вотермарк подвала, вся надпись 1770×334,675 |
 | `hero/bg-*.webp` | выгружено дизайнером | фон первого экрана, см. ниже |
 | `hero/hero-img.webp` | `5722:2844` | ноутбук, только 375 |
 | `portfolio/bodo-*` | `3791:855` | кейс BODO |
