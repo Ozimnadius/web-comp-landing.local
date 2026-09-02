@@ -1504,11 +1504,35 @@ a {
   padding: var(--Gaps-Gap-24);
   background: var(--White);
 }
+@media (any-hover: hover) {
+  .price-card:hover .price-card__button {
+    border-color: var(--Yellow);
+    background: var(--Yellow);
+  }
+}
+@media (any-hover: none) {
+  .price-card:active .price-card__button {
+    border-color: var(--Yellow);
+    background: var(--Yellow);
+  }
+}
 .price-card--featured {
   position: relative;
   overflow: hidden;
   background: linear-gradient(32.72deg, #000000 9.79%, #bc9200 112.6%);
   color: var(--White);
+}
+@media (any-hover: hover) {
+  .price-card--featured:hover .price-card__button {
+    border-color: var(--Yellow);
+    background: var(--Yellow);
+  }
+}
+@media (any-hover: none) {
+  .price-card--featured:active .price-card__button {
+    border-color: var(--Yellow);
+    background: var(--Yellow);
+  }
 }
 .price-card--featured::before, .price-card--featured::after {
   content: "";

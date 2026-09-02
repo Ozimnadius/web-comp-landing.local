@@ -1,5 +1,6 @@
 @use "../helpers" as *;
 @use "../ui/typography" as *;
+@use "../ui/buttons" as *;
 
 // price-card
 
@@ -12,11 +13,27 @@
   padding: var(--Gaps-Gap-24);
   background: var(--White);
 
+  // Наведение на карточку подсвечивает её кнопку: на листе состояний Default
+  // и Hover отличаются только ею, сама карточка не меняется
+  @include hover {
+    .price-card__button {
+      @include btn-outline-hover;
+    }
+  }
+
   &--featured {
     position: relative;
     overflow: hidden;
     background: linear-gradient(32.72deg, #000000 9.79%, #bc9200 112.6%);
     color: var(--White);
+
+    // Кнопка тут другого варианта, поэтому правило базы не подходит. Ховера
+    // тёмной карточки в макете нет — выведен по остальным пяти, см. NOTES.md
+    @include hover {
+      .price-card__button {
+        @include btn-light-hover;
+      }
+    }
 
     // Эллипсы — декорация, в разметке их нет. Размер и вылет за карточку
     // одинаковы на всех полосах, поэтому медиазапросы тут не нужны

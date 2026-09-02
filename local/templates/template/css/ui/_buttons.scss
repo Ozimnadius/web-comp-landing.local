@@ -42,14 +42,20 @@
 
 // Linear на светлом фоне: чёрная рамка и чёрный текст.
 // Так сделана кнопка в карточке тарифа — узел 5702:331.
+// Раскраска наведения вынесена из варианта отдельным миксином: её вызывает
+// не только сама кнопка, но и карточка тарифа по своему наведению
+@mixin btn-outline-hover {
+  border-color: var(--Yellow);
+  background: var(--Yellow);
+}
+
 @mixin btn-outline {
   border-color: var(--Black);
   background: transparent;
   color: var(--Black);
 
   @include hover {
-    border-color: var(--Yellow);
-    background: var(--Yellow);
+    @include btn-outline-hover;
   }
 }
 
@@ -69,14 +75,20 @@
 // Сплошная белая на тёмном — кнопка тарифа «Интернет-магазин», узел 5702:354.
 // Hover в макете не нарисован: на листе состояний тёмной карточки нет.
 // Значение выведено по остальным вариантам — все три уходят в жёлтый.
+// Раскраска совпадает с btn-outline-hover, но миксин отдельный: это разные
+// варианты кнопки, и разойтись они должны молча, а не потянуть друг друга
+@mixin btn-light-hover {
+  border-color: var(--Yellow);
+  background: var(--Yellow);
+}
+
 @mixin btn-light {
   border-color: var(--White);
   background: var(--White);
   color: var(--Black);
 
   @include hover {
-    border-color: var(--Yellow);
-    background: var(--Yellow);
+    @include btn-light-hover;
   }
 }
 
