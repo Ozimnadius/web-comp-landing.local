@@ -64,6 +64,20 @@
   }
 }
 
+// Сплошная белая на тёмном — кнопка тарифа «Интернет-магазин», узел 5702:354.
+// Hover в макете не нарисован: на листе состояний тёмной карточки нет.
+// Значение выведено по остальным вариантам — все три уходят в жёлтый.
+@mixin btn-light {
+  border-color: var(--White);
+  background: var(--White);
+  color: var(--Black);
+
+  @include hover {
+    border-color: var(--Yellow);
+    background: var(--Yellow);
+  }
+}
+
 .btn {
   @include btn;
 
@@ -77,6 +91,10 @@
 
   &--invert {
     @include btn-invert;
+  }
+
+  &--light {
+    @include btn-light;
   }
 
   &--block {
