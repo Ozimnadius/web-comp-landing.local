@@ -6,19 +6,15 @@
 .hero {
   position: relative;
 
-  // Фон лежит в потоке и сам задаёт высоту секции.
   &__bg {
     display: block;
 
-    // На 375 высоту задаёт контент, поэтому фон уходит за него подложкой
     @include xs-block {
       position: absolute;
       inset: 0;
     }
   }
 
-  // Картинка в потоке задаёт высоту секции. min-height держит первый экран
-  // не ниже окна; ниже 1440 снимается — см. NOTES.md
   &__bg-image {
     display: block;
     width: 100%;
@@ -40,7 +36,6 @@
     inset: 0;
     display: flex;
 
-    // relative, не static: иначе абсолютный фон рисуется поверх и прячет контент
     @include xs-block {
       position: relative;
       inset: auto;
@@ -55,8 +50,6 @@
     padding-top: calc(var(--header-height) + var(--Gaps-Gap-100));
     padding-bottom: var(--Gaps-Gap-75);
 
-    // На 375 высоту задаёт контент, а не фон: текст, картинка и полоса идут
-    // в потоке вплотную, снизу отступа нет
     @include xs-block {
       justify-content: flex-start;
       height: auto;
@@ -64,7 +57,6 @@
     }
   }
 
-  // Только на 375: на 768 и выше ноутбук впечатан в фон
   &__image {
     display: none;
 
@@ -97,8 +89,6 @@
     color: var(--White);
   }
 
-  // Тёплое свечение есть только у этой кнопки — см. NOTES.md.
-  // В макете размер задан явно: 164x40 на 768 и 375
   &__button {
     box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
 
@@ -124,7 +114,6 @@
       align-items: flex-end;
     }
 
-    // Полоса во всю ширину экрана, поэтому выходит из контейнера
     @include xs-block {
       align-items: center;
       margin-inline: calc(-1 * var(--container-padding));
@@ -155,7 +144,6 @@
       align-items: center;
       justify-content: space-between;
 
-      // Элемент строки, не абсолют: space-between сам ставит его посередине
       &::before {
         content: "";
         order: 1;

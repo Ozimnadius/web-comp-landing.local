@@ -3,7 +3,6 @@
 // prices
 
 .prices {
-  // Ширина колонки описания снята с каждой полосы отдельно — см. NOTES.md
   --prices-aside: 580px;
   --prices-gap: 39px;
 
@@ -20,7 +19,6 @@
     --prices-aside: 360px;
   }
 
-  // С 1200 описание переезжает налево, карточки направо
   @include md-block {
     --prices-aside: 292px;
     --prices-gap: 30px;
@@ -28,19 +26,13 @@
     grid-template-columns: var(--prices-aside) minmax(0, 1fr);
   }
 
-  // Описание встаёт над карточками
   @include sm-block {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--Gaps-Gap-40);
   }
 
-  // Внутреннее устройство колонки — в блоке section-intro. Здесь только место
-  // в сетке и отбивка сверху
   &__intro {
     order: 2;
-
-    // Ставит «Тарифы» вровень с названием первого тарифа, а не с верхом
-    // карточки. Отбивка есть только на 1920 и 1600
     padding-top: 27px;
 
     @include lg-block {
@@ -55,9 +47,6 @@
   &__list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    // Ряды равной высоты: в макете все шесть карточек одного размера, и кнопки
-    // выстроены в одну линию. С 768 макет отпускает ряды по содержимому
     grid-auto-rows: 1fr;
     gap: var(--Gaps-Gap-24);
 

@@ -3,7 +3,6 @@
 // advantages
 
 .advantages {
-  // Две конфигурации на четыре десктопные полосы — см. NOTES.md
   --advantages-intro: 643px;
   --advantages-gap: 87px;
 
@@ -17,7 +16,6 @@
     --advantages-gap: 30px;
   }
 
-  // Описание встаёт над карточками
   @include sm-block {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--Gaps-Gap-40);

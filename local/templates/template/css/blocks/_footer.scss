@@ -7,48 +7,35 @@
   padding-block: var(--Gaps-Gap-100);
   background: var(--Grey);
 
-  // Зазор между тремя частями подвала одинаков, поэтому колонкой с gap,
-  // а не отступами на каждой
   &__inner {
     display: flex;
     flex-direction: column;
     gap: var(--Gaps-Gap-75);
 
-    // На 375 макет даёт 40 — больше, чем на 768, и мимо токена. См. NOTES.md
     @include xs-block {
       gap: 40px;
     }
   }
 
-  // В макете зазоры между колонками равны на всех полосах (628 на 1920,
-  // 366,5 на 1200, 181,5 на 768) — это space-between, а не заданная сетка
   &__columns {
     display: flex;
-    // Без этого колонки тянутся на высоту ряда, и «Наверх», прижатый к низу
-    // колонки контактов, уезжает под меню
     align-items: flex-start;
     justify-content: space-between;
     gap: var(--Gaps-Gap-40);
 
     @include xs-block {
-      // Тут наоборот: контакты должны занять всю ширину, чтобы развести
-      // список и «Наверх» по краям
       align-items: stretch;
       flex-direction: column;
       gap: 30px;
     }
   }
 
-  // «Наверх» прижат к низу колонки, а не отбит зазором: с 768 по 1920 макет
-  // держит высоту 164 и ставит блок на 119,41 сверху. Число сырое, потому что
-  // это константа макета — см. NOTES.md
   &__contacts {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 164px;
 
-    // На 375 «Наверх» уезжает вправо от контактов, в одну строку с ними
     @include xs-block {
       flex-direction: row;
       align-items: center;
@@ -56,7 +43,6 @@
     }
   }
 
-  // Телефон с почтой стоят теснее пунктов меню: пара, а не список
   &__contacts-list {
     display: flex;
     flex-direction: column;
@@ -70,10 +56,6 @@
     gap: var(--Gaps-Gap-24);
   }
 
-  // display: block обязателен. Строчная ссылка внутри li считает высоту
-  // строки по большему из двух интерлиньяжей — своему и родительскому. У li
-  // кегль наследуется от body, и строка выходила 23,88 вместо 23,04:
-  // на пяти пунктах меню набегало 4px, на всём подвале — 7
   &__contact,
   &__menu-link,
   &__social,
@@ -105,8 +87,6 @@
     }
   }
 
-  // Размеры сырые: это габариты самой стрелки, не отступ и не радиус.
-  // В макете они одинаковы на всех полосах
   &__totop-icon {
     @include tr;
 
@@ -117,8 +97,6 @@
     mask: url("/upload/images/icons/arrow-up.svg") center / contain no-repeat;
   }
 
-  // Линии в макете — отдельные слои, но у нас это границы блоков: лишний
-  // узел ради полоски не нужен
   &__address {
     border-top: 1px solid var(--Grey-4);
     padding-top: var(--Gaps-Gap-40);
@@ -127,9 +105,7 @@
   &__address-text {
     @include text-24;
 
-    // address по умолчанию курсивный
     font-style: normal;
-
     text-align: right;
   }
 
@@ -160,7 +136,6 @@
     display: flex;
     gap: var(--Gaps-Gap-40);
 
-    // На 375 политики встают столбиком и поднимаются над копирайтом
     @include xs-block {
       order: -1;
       flex-direction: column;

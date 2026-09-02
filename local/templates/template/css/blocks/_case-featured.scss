@@ -4,7 +4,6 @@
 // case-featured
 
 .case-featured {
-  // Доля колонки описания снята с каждой полосы отдельно — см. NOTES.md
   --case-featured-details: 32.3%;
 
   counter-increment: case;
@@ -21,7 +20,6 @@
     --case-featured-details: 36.6%;
   }
 
-  // Описание уходит под превью
   @include sm-block {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -32,11 +30,6 @@
     overflow: hidden;
   }
 
-  // Соотношение бокса равно соотношению ролика, поэтому кадрировать нечего.
-  // object-fit не задан намеренно: у video по умолчанию contain, и ролик
-  // другой пропорции покажет поля, а не молча обрежется.
-  // height: auto обязателен — атрибуты width и height из разметки приходят
-  // презентационными подсказками, и height перебивает aspect-ratio
   &__video {
     display: block;
     width: 100%;
@@ -52,7 +45,6 @@
     border-radius: var(--Radius-Radius-24);
     padding: var(--Gaps-Gap-40);
 
-    // Номер кейса рисует счётчик, в разметке его нет — см. NOTES.md
     &::before {
       @include text-32;
 
@@ -71,7 +63,6 @@
     @include text-32;
   }
 
-  // Линия под мета-строкой — граница, а не отдельный узел
   &__meta {
     @include text-14;
 
@@ -83,9 +74,6 @@
     padding-bottom: var(--Gaps-Gap-24);
   }
 
-  // Стрелка в подписи обещает переход, поэтому это ссылка, а не span.
-  // Подчёркивание снято: в макете подписи типа проекта не подчёркнуты,
-  // ховер приходит глобальным правилом для a
   &__type {
     text-decoration: none;
   }

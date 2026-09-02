@@ -15,14 +15,11 @@
   padding: var(--Gaps-Gap-40);
   overflow: hidden;
 
-  // На наведении рамка уступает место белой заливке. Рамка не снимается,
-  // а обесцвечивается: убрать её значило бы поменять размер бокса
   @include hover {
     border-color: transparent;
     background: var(--White);
   }
 
-  // height: auto обязателен — см. _case-featured.scss
   &__image {
     width: 100%;
     height: auto;
@@ -46,8 +43,6 @@
     gap: var(--Gaps-Gap-24);
   }
 
-  // Номер стоит слева от названия, поэтому счётчик рисуется здесь, а не
-  // на карточке: у главного кейса он над названием, и правило другое
   &__name {
     @include text-32;
 
@@ -72,7 +67,6 @@
     padding-bottom: var(--Gaps-Gap-24);
   }
 
-  // Ссылка, а не span — см. _case-featured.scss
   &__type {
     text-decoration: none;
   }
