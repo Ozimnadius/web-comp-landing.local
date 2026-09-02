@@ -1,0 +1,40 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// section-intro
+
+.section-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--Gaps-Gap-24);
+
+  &__tagline {
+    @include tagline-24;
+
+    color: var(--Grey-4);
+  }
+
+  &__text {
+    @include text-24;
+
+    color: var(--Grey-5);
+  }
+
+  // Подпись переносится под кнопку сама, когда колонка для них узка. По центру
+  // кнопки её не ставим — см. NOTES.md
+  &__action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 30px;
+    row-gap: var(--Gaps-Gap-10);
+
+    @include xs-block {
+      column-gap: var(--Gaps-Gap-40);
+    }
+  }
+
+  &__note {
+    @include text-16;
+  }
+}

@@ -1,0 +1,32 @@
+@use "../helpers" as *;
+
+// advantages
+
+.advantages {
+  // Две конфигурации на четыре десктопные полосы — см. NOTES.md
+  --advantages-intro: 643px;
+  --advantages-gap: 87px;
+
+  display: grid;
+  grid-template-columns: var(--advantages-intro) minmax(0, 1fr);
+  gap: var(--advantages-gap);
+  padding-block: var(--Gaps-Gap-100);
+
+  @include lg-block {
+    --advantages-intro: 360px;
+    --advantages-gap: 30px;
+  }
+
+  // Описание встаёт над карточками
+  @include sm-block {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--Gaps-Gap-40);
+  }
+
+  &__list {
+    counter-reset: advantage;
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-24);
+  }
+}

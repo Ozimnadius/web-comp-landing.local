@@ -1,5 +1,4 @@
 @use "../helpers" as *;
-@use "../ui/typography" as *;
 
 // prices
 
@@ -35,14 +34,13 @@
     gap: var(--Gaps-Gap-40);
   }
 
+  // Внутреннее устройство колонки — в блоке section-intro. Здесь только место
+  // в сетке и отбивка сверху
   &__intro {
     order: 2;
-    display: flex;
-    flex-direction: column;
-    gap: var(--Gaps-Gap-24);
 
-    // Отбивка ставит «Тарифы» вровень с названием первого тарифа, а не с верхом
-    // карточки; с 1440 в макете её нет
+    // Ставит «Тарифы» вровень с названием первого тарифа, а не с верхом
+    // карточки. Отбивка есть только на 1920 и 1600
     padding-top: 27px;
 
     @include lg-block {
@@ -52,53 +50,6 @@
     @include md-block {
       order: 0;
     }
-  }
-
-  &__tagline {
-    @include tagline-24;
-
-    color: var(--Grey-4);
-  }
-
-  &__text {
-    @include text-24;
-
-    color: var(--Grey-5);
-  }
-
-  &__action {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    // Вертикальный зазор виден только там, где подпись переносится под кнопку,
-    // то есть на 1200: в режиме 1200 Gap-10 даёт как раз макетные 8
-    column-gap: 30px;
-    row-gap: var(--Gaps-Gap-10);
-
-    // На 1200 колонка описания узкая, и подпись в макете уходит под кнопку,
-    // отцентрованная по её ширине. Одним flex-wrap так не сделать: он
-    // центрует по всей колонке. Ширина по содержимому равна ширине кнопки —
-    // она здесь самая широкая
-    @include md-block {
-      flex-direction: column;
-      align-items: center;
-      width: fit-content;
-    }
-
-    // Ниже 1200 макет снова ставит кнопку и подпись рядом
-    @include sm-block {
-      flex-direction: row;
-      width: auto;
-    }
-
-    @include xs-block {
-      column-gap: var(--Gaps-Gap-40);
-    }
-  }
-
-  &__note {
-    @include text-16;
   }
 
   &__list {

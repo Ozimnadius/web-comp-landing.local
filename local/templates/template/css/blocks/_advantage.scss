@@ -1,0 +1,41 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// advantage
+
+.advantage {
+  counter-increment: advantage;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--Gaps-Gap-40);
+  border: 1px solid var(--Grey-4);
+  border-radius: var(--Radius-Radius-16);
+  padding: var(--Gaps-Gap-40) var(--Gaps-Gap-24);
+  background: var(--White);
+
+  // Номер рисует счётчик: в разметке его нет — см. NOTES.md.
+  // Счётчик именованный, а не встроенный list-item: тот наращивают только
+  // элементы с display: list-item, а здесь флекс, и все номера были бы 00
+  &::before {
+    @include text-32;
+
+    content: counter(advantage, decimal-leading-zero);
+    color: var(--Yellow);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--Gaps-Gap-18);
+    min-width: 0;
+  }
+
+  &__title {
+    @include text-32;
+  }
+
+  &__text {
+    @include text-24;
+  }
+}
