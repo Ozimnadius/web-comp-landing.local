@@ -5,16 +5,37 @@
 //        768  https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5709-1542
 //        375  https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5715-2369
 
+// Две полосы работают одинаково: фон уходит подложкой, а высоту задаёт не он.
+// От 1440 и шире — потому что там первый экран растянут на высоту окна,
+// на 375 — потому что высоту задаёт контент. Между ними, на md и sm,
+// высоту по-прежнему задаёт сама картинка в потоке.
+@mixin bg-as-underlay {
+  @include lg-up {
+    @content;
+  }
+
+  @include xs-block {
+    @content;
+  }
+}
+
 .hero {
   position: relative;
+  display: flex;
+  flex-direction: column;
 
-  // Фон лежит в потоке и задаёт высоту секции: на каждой полосе она приходит
-  // из своей картинки сама. Контент накладывается поверх — см. blocks/NOTES.md
+  // Первый экран занимает высоту окна. Именно min-height, а не height:
+  // на низком окне контент должен уметь вырасти, а не обрезаться.
+  @include lg-up {
+    min-height: 100vh;
+  }
+
+  // По умолчанию фон лежит в потоке и задаёт высоту секции — так работают
+  // полосы md и sm. На остальных он уходит подложкой, см. миксин выше.
   &__bg {
     display: block;
 
-    // На 375 высоту задаёт контент, поэтому фон уходит за него подложкой
-    @include xs-block {
+    @include bg-as-underlay {
       position: absolute;
       inset: 0;
     }
@@ -25,7 +46,7 @@
     width: 100%;
     height: auto;
 
-    @include xs-block {
+    @include bg-as-underlay {
       height: 100%;
       object-fit: cover;
     }
@@ -39,9 +60,10 @@
     // Именно relative, а не static: фон здесь абсолютный и, будучи
     // позиционированным, рисуется поверх непозиционированного соседа.
     // Со static контент уезжает под фон и пропадает с экрана.
-    @include xs-block {
+    @include bg-as-underlay {
       position: relative;
       inset: auto;
+      flex-grow: 1;
     }
   }
 
