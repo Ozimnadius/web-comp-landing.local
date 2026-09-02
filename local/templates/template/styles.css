@@ -678,6 +678,7 @@ h3,
   text-transform: uppercase;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+  line-height: 0.6;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;

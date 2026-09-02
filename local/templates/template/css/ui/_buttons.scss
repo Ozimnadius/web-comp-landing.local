@@ -10,6 +10,11 @@
   @include btn-uc-18;
   @include tr;
 
+  // Перебивает line-height типографики намеренно — см. ui/NOTES.md.
+  // В Figma текстовый бокс кнопки обрезан по высоте прописных, в браузере
+  // строка занимает полный em-бокс, и кнопка выходила на 6–7px выше макета
+  line-height: 0.6;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -20,8 +25,6 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-
-  // Кнопка на 6–7px выше макета, это принятое расхождение — см. ui/NOTES.md
 }
 
 // Default: жёлтая заливка с тёплым свечением.
