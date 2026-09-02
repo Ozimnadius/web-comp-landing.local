@@ -1,0 +1,98 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// faq-item
+
+.faq-item {
+  // Наследуется, поэтому глобальную настройку документа трогать не нужно
+  interpolate-size: allow-keywords;
+
+  border-bottom: 1px solid var(--Black);
+  padding-block: var(--Gaps-Gap-18);
+
+  // Плавное раскрытие без JS. Где ::details-content не поддержан, строка
+  // раскроется мгновенно — работать не перестанет. См. NOTES.md
+  &::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: var(--transition);
+    transition-behavior: allow-discrete;
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+  }
+
+  &__question {
+    @include text-24;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-10);
+    cursor: pointer;
+    list-style: none;
+
+    // Маркер убирают и display: flex, и list-style, но старый WebKit рисует
+    // собственный треугольник и слушает только это
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  // Круг с плюсом собран в CSS: Figma не отдаёт его как SVG. Размеры сняты
+  // с макета и одинаковы на всех полосах
+  &__icon {
+    @include tr;
+
+    position: relative;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--Yellow);
+
+    &::before,
+    &::after {
+      @include tr;
+
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 2.625px;
+      background: var(--Black);
+      translate: -50% -50%;
+    }
+
+    &::before {
+      width: 15.75px;
+      height: 2.625px;
+    }
+
+    &::after {
+      width: 2.625px;
+      height: 15.75px;
+    }
+  }
+
+  // Открытая строка: круг гаснет, вертикальная палочка схлопывается и плюс
+  // становится минусом
+  &[open] &__icon {
+    background: var(--Grey-3);
+
+    &::after {
+      scale: 1 0;
+    }
+  }
+
+  &__answer {
+    @include text-18;
+
+    margin-top: var(--Gaps-Gap-18);
+    border-radius: 12px;
+    padding: var(--Gaps-Gap-24);
+    background: var(--Grey);
+    color: var(--Grey-5);
+  }
+}

@@ -1,0 +1,43 @@
+@use "../helpers" as *;
+
+// faq
+
+.faq {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--Gaps-Gap-24);
+  padding-block: var(--Gaps-Gap-100);
+
+  // Колонки встают друг над другом
+  @include sm-block {
+    flex-direction: column;
+  }
+
+  &__intro {
+    flex-shrink: 0;
+    width: 644px;
+
+    @include md-block {
+      width: 414px;
+    }
+
+    // 100%, а не auto: в колоночном флексе align-items: flex-start ужимает
+    // элемент по содержимому, и колонка выходила уже секции
+    @include sm-block {
+      width: 100%;
+    }
+  }
+
+  // max-width, а не фиксированная ширина: в макете на 1600 список шире
+  // контейнера на 14px — см. NOTES.md
+  &__list {
+    flex-grow: 1;
+    max-width: 820px;
+
+    @include sm-block {
+      width: 100%;
+      max-width: none;
+    }
+  }
+}
