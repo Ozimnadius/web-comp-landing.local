@@ -1946,6 +1946,9 @@ a {
   border-bottom: 1px solid var(--Grey-4);
   padding-bottom: var(--Gaps-Gap-24);
 }
+.case-featured__type {
+  text-decoration: none;
+}
 .case-featured__text {
   font-family: var(--Font-Family-Font);
   font-weight: 400;
@@ -2077,6 +2080,9 @@ a {
   gap: var(--Gaps-Gap-24);
   border-bottom: 1px solid var(--Grey-4);
   padding-bottom: var(--Gaps-Gap-24);
+}
+.case-card__type {
+  text-decoration: none;
 }
 .case-card__text {
   font-family: var(--Font-Family-Font);

@@ -72,6 +72,11 @@
     padding-bottom: var(--Gaps-Gap-24);
   }
 
+  // Ссылка, а не span — см. _case-featured.scss
+  &__type {
+    text-decoration: none;
+  }
+
   &__text {
     @include text-16;
 
