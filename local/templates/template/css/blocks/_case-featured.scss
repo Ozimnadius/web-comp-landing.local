@@ -9,6 +9,7 @@
 
   counter-increment: case;
   display: grid;
+  align-items: start;
   grid-template-columns: minmax(0, 1fr) var(--case-featured-details);
   gap: var(--Gaps-Gap-24);
 
@@ -25,26 +26,22 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  // Подложка держит соотношение превью, когда бокс перестаёт быть 2,015 —
-  // высоту ему задаёт соседняя колонка. См. NOTES.md
   &__media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid var(--Grey-4);
     border-radius: var(--Radius-Radius-24);
-    padding: var(--Gaps-Gap-24);
-    background: var(--Grey-2);
+    overflow: hidden;
   }
 
-  // height: auto обязателен. Атрибуты width и height из разметки приходят
+  // Соотношение бокса равно соотношению ролика, поэтому кадрировать нечего.
+  // object-fit не задан намеренно: у video по умолчанию contain, и ролик
+  // другой пропорции покажет поля, а не молча обрежется.
+  // height: auto обязателен — атрибуты width и height из разметки приходят
   // презентационными подсказками, и height перебивает aspect-ratio
   &__video {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 1035 / 513.58;
-    border-radius: var(--Radius-Radius-24);
-    object-fit: cover;
+    aspect-ratio: 16 / 9;
   }
 
   &__details {

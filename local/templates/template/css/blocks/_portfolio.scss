@@ -42,10 +42,13 @@
     color: var(--Grey-5);
   }
 
+  // nowrap: в строке шапки ссылка сжимается последней и без него ломается
+  // на две строки уже на 1200
   &__link {
     @include link-24;
 
     color: var(--Orange);
+    white-space: nowrap;
   }
 
   // grid, а не block: единственный ребёнок растягивается сам, и обёртке не надо
@@ -59,11 +62,14 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--Gaps-Gap-24);
 
-    // На 375 ряд кейсов в макете шире экрана — прокручивается пальцем.
-    // Выходит из контейнера, чтобы карточки не обрывались у его края
-    @include xs-block {
+    // Ниже 1200 ряд кейсов прокручивается пальцем: втроём в колонках они
+    // становятся уже содержимого — тег «Индивидуальный дизайн» ломался
+    // на две строки. Порог задан шириной, а не полосой: minmax держит колонку
+    // не уже 308, но отдаёт ей место, когда оно есть, и тогда прокрутки нет.
+    // Ряд выходит из контейнера, иначе карточки обрывались бы у его края
+    @include sm-block {
       grid-auto-flow: column;
-      grid-auto-columns: 308px;
+      grid-auto-columns: minmax(308px, 1fr);
       grid-template-columns: none;
       margin-inline: calc(-1 * var(--container-padding));
       padding-inline: var(--container-padding);
@@ -76,7 +82,7 @@
   &__item {
     display: grid;
 
-    @include xs-block {
+    @include sm-block {
       scroll-snap-align: start;
     }
   }
