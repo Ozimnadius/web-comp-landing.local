@@ -1,0 +1,112 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// case-featured
+
+.case-featured {
+  // Доля колонки описания снята с каждой полосы отдельно — см. NOTES.md
+  --case-featured-details: 32.3%;
+
+  counter-increment: case;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--case-featured-details);
+  gap: var(--Gaps-Gap-24);
+
+  @include lg-block {
+    --case-featured-details: 49.3%;
+  }
+
+  @include md-block {
+    --case-featured-details: 36.6%;
+  }
+
+  // Описание уходит под превью
+  @include sm-block {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // Подложка держит соотношение превью, когда бокс перестаёт быть 2,015 —
+  // высоту ему задаёт соседняя колонка. См. NOTES.md
+  &__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--Radius-Radius-24);
+    padding: var(--Gaps-Gap-24);
+    background: var(--Grey-2);
+  }
+
+  // height: auto обязателен. Атрибуты width и height из разметки приходят
+  // презентационными подсказками, и height перебивает aspect-ratio
+  &__video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1035 / 513.58;
+    border-radius: var(--Radius-Radius-24);
+    object-fit: cover;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-24);
+    border: 1px solid var(--Grey-4);
+    border-radius: var(--Radius-Radius-24);
+    padding: var(--Gaps-Gap-40);
+
+    // Номер кейса рисует счётчик, в разметке его нет — см. NOTES.md
+    &::before {
+      @include text-32;
+
+      content: counter(case, decimal-leading-zero);
+      color: var(--Yellow);
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-40);
+  }
+
+  &__name {
+    @include text-32;
+  }
+
+  // Линия под мета-строкой — граница, а не отдельный узел
+  &__meta {
+    @include text-14;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-24);
+    border-bottom: 1px solid var(--Grey-4);
+    padding-bottom: var(--Gaps-Gap-24);
+  }
+
+  &__text {
+    @include text-16;
+
+    color: var(--Grey-5);
+  }
+
+  &__services {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  &__services-title {
+    @include text-18;
+
+    color: var(--Grey-5);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--Gaps-Gap-10);
+  }
+}

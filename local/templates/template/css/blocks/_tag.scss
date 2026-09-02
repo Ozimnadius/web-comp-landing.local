@@ -1,0 +1,23 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// tag
+
+.tag {
+  @include text-16;
+  @include tr;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--Grey-4);
+  border-radius: 40px;
+  padding: var(--Gaps-Gap-10) var(--Gaps-Gap-18);
+  color: var(--Grey-5);
+  text-decoration: none;
+
+  @include hover {
+    border-color: var(--Yellow);
+    color: var(--Orange);
+  }
+}

@@ -1,0 +1,98 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// case-card
+
+.case-card {
+  @include tr;
+
+  counter-increment: case;
+  display: flex;
+  flex-direction: column;
+  gap: var(--Gaps-Gap-40);
+  border: 1px solid var(--Grey-4);
+  border-radius: var(--Radius-Radius-16);
+  padding: var(--Gaps-Gap-40);
+  overflow: hidden;
+
+  // На наведении рамка уступает место белой заливке. Рамка не снимается,
+  // а обесцвечивается: убрать её значило бы поменять размер бокса
+  @include hover {
+    border-color: transparent;
+    background: var(--White);
+  }
+
+  // height: auto обязателен — см. _case-featured.scss
+  &__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 863 / 577;
+    border: 1px solid var(--Grey-3);
+    border-radius: var(--Radius-Radius-10);
+    background: var(--Grey-2);
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-24);
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-24);
+  }
+
+  // Номер стоит слева от названия, поэтому счётчик рисуется здесь, а не
+  // на карточке: у главного кейса он над названием, и правило другое
+  &__name {
+    @include text-32;
+
+    display: flex;
+    gap: var(--Gaps-Gap-24);
+
+    &::before {
+      content: counter(case, decimal-leading-zero);
+      flex-shrink: 0;
+      color: var(--Yellow);
+    }
+  }
+
+  &__meta {
+    @include text-14;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-24);
+    border-bottom: 1px solid var(--Grey-4);
+    padding-bottom: var(--Gaps-Gap-24);
+  }
+
+  &__text {
+    @include text-16;
+
+    color: var(--Grey-5);
+  }
+
+  &__services {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  &__services-title {
+    @include text-18;
+
+    color: var(--Grey-5);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--Gaps-Gap-10);
+  }
+}

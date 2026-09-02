@@ -1,0 +1,83 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// portfolio
+
+.portfolio {
+  counter-reset: case;
+  display: flex;
+  flex-direction: column;
+  gap: var(--Gaps-Gap-40);
+  padding-block: var(--Gaps-Gap-100);
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-40);
+
+    // С 768 части шапки встают друг под другом
+    @include sm-block {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--Gaps-Gap-24);
+    }
+  }
+
+  &__title-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-24);
+  }
+
+  &__tagline {
+    @include tagline-24;
+
+    color: var(--Grey-4);
+  }
+
+  &__text {
+    @include text-24;
+
+    color: var(--Grey-5);
+  }
+
+  &__link {
+    @include link-24;
+
+    color: var(--Orange);
+  }
+
+  // grid, а не block: единственный ребёнок растягивается сам, и обёртке не надо
+  // знать, что внутри неё лежит
+  &__featured {
+    display: grid;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--Gaps-Gap-24);
+
+    // На 375 ряд кейсов в макете шире экрана — прокручивается пальцем.
+    // Выходит из контейнера, чтобы карточки не обрывались у его края
+    @include xs-block {
+      grid-auto-flow: column;
+      grid-auto-columns: 308px;
+      grid-template-columns: none;
+      margin-inline: calc(-1 * var(--container-padding));
+      padding-inline: var(--container-padding);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--container-padding);
+    }
+  }
+
+  &__item {
+    display: grid;
+
+    @include xs-block {
+      scroll-snap-align: start;
+    }
+  }
+}
