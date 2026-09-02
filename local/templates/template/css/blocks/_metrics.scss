@@ -1,0 +1,103 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// metrics
+
+.metrics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--Gaps-Gap-75);
+
+  @include sm-block {
+    justify-content: center;
+    gap: 26px;
+  }
+
+  // Партнёр и метрики встают в две колонки; разделитель — граница списка,
+  // поэтому колонки тянутся на всю высоту строки
+  @include xs-block {
+    align-items: stretch;
+    gap: 20px;
+    padding-block: 30px;
+  }
+
+  // На десктопе список перестаёт быть боксом: три метрики становятся прямыми
+  // детьми строки, и space-between раскладывает все четыре группы с равным
+  // шагом — см. NOTES.md
+  &__list {
+    display: contents;
+
+    @include sm-block {
+      display: flex;
+      gap: var(--Gaps-Gap-24);
+    }
+
+    @include xs-block {
+      flex-direction: column;
+      justify-content: center;
+      border-inline-start: 1px solid var(--Grey-3);
+      padding-inline-start: 20px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  &__value {
+    @include h1;
+  }
+
+  &__label {
+    @include text-24;
+  }
+
+  &__partner {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @include sm-block {
+      gap: var(--Gaps-Gap-24);
+    }
+
+    // Логотип встаёт над подписью, а сам партнёр уходит левее метрик
+    @include xs-block {
+      order: -1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__partner-logo {
+    flex-shrink: 0;
+    width: 132px;
+    height: auto;
+
+    @include sm-block {
+      width: 87px;
+    }
+
+    @include xs-block {
+      width: 114px;
+    }
+  }
+
+  &__partner-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  &__partner-name {
+    @include h1;
+  }
+
+  &__partner-text {
+    @include text-24;
+  }
+}
