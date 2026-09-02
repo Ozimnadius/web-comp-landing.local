@@ -1,0 +1,117 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// price-card
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--Gaps-Gap-24);
+  border-radius: var(--Radius-Radius-16);
+  padding: var(--Gaps-Gap-24);
+  background: var(--White);
+
+  &--featured {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(32.72deg, #000000 9.79%, #bc9200 112.6%);
+    color: var(--White);
+
+    // Эллипсы — декорация, в разметке их нет. Размер и вылет за карточку
+    // одинаковы на всех полосах, поэтому медиазапросы тут не нужны
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      transform: rotate(5.74deg) scaleY(0.92) skewX(23.52deg);
+      pointer-events: none;
+    }
+
+    &::before {
+      top: -219px;
+      right: -264px;
+      width: 494px;
+      height: 469px;
+      background: url("/upload/images/icons/price-card-ellipse-1.svg") center / 357px 455px no-repeat;
+    }
+
+    &::after {
+      top: -101px;
+      right: -263px;
+      width: 774px;
+      height: 652px;
+      background: url("/upload/images/icons/price-card-ellipse-2.svg") center / 586px 624px no-repeat;
+    }
+  }
+
+  // z-index поднимает содержимое над эллипсами. Стоит на всех карточках:
+  // в обычных декорации нет, и правило там ничего не делает
+  &__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-18);
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  // Именованного стиля под кегль XXXS в макете нет, поэтому от text-14 берётся
+  // всё, кроме размера
+  &__badge {
+    @include text-14;
+
+    align-self: flex-start;
+    border-radius: var(--Radius-Radius-100);
+    padding: 5px 13px;
+    background: var(--Yellow);
+    color: var(--Black);
+    font-size: var(--Font-Size-Font-Size-XXXS);
+  }
+
+  &__name {
+    @include text-24;
+  }
+
+  &__price {
+    @include price-l;
+
+    white-space: nowrap;
+  }
+
+  &__note {
+    @include text-14;
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  &__feature {
+    @include text-14;
+
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  &__feature-icon {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--Yellow);
+    mask: url("/upload/images/icons/check.svg") center / contain no-repeat;
+  }
+
+  &__button {
+    position: relative;
+    z-index: 1;
+  }
+}

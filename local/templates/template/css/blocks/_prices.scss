@@ -1,0 +1,121 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// prices
+
+.prices {
+  // Ширина колонки описания снята с каждой полосы отдельно — см. NOTES.md
+  --prices-aside: 580px;
+  --prices-gap: 39px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--prices-aside);
+  gap: var(--prices-gap);
+  padding-block: var(--Gaps-Gap-100);
+
+  @include xl-block {
+    --prices-aside: 419px;
+  }
+
+  @include lg-block {
+    --prices-aside: 360px;
+  }
+
+  // С 1200 описание переезжает налево, карточки направо
+  @include md-block {
+    --prices-aside: 292px;
+    --prices-gap: 30px;
+
+    grid-template-columns: var(--prices-aside) minmax(0, 1fr);
+  }
+
+  // Описание встаёт над карточками
+  @include sm-block {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--Gaps-Gap-40);
+  }
+
+  &__intro {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-24);
+
+    // Отбивка ставит «Тарифы» вровень с названием первого тарифа, а не с верхом
+    // карточки; с 1440 в макете её нет
+    padding-top: 27px;
+
+    @include lg-block {
+      padding-top: 0;
+    }
+
+    @include md-block {
+      order: 0;
+    }
+  }
+
+  &__tagline {
+    @include tagline-24;
+
+    color: var(--Grey-4);
+  }
+
+  &__text {
+    @include text-24;
+
+    color: var(--Grey-5);
+  }
+
+  &__action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    // Вертикальный зазор виден только там, где подпись переносится под кнопку,
+    // то есть на 1200: в режиме 1200 Gap-10 даёт как раз макетные 8
+    column-gap: 30px;
+    row-gap: var(--Gaps-Gap-10);
+
+    // На 1200 колонка описания узкая, и подпись в макете уходит под кнопку,
+    // отцентрованная по её ширине. Одним flex-wrap так не сделать: он
+    // центрует по всей колонке. Ширина по содержимому равна ширине кнопки —
+    // она здесь самая широкая
+    @include md-block {
+      flex-direction: column;
+      align-items: center;
+      width: fit-content;
+    }
+
+    // Ниже 1200 макет снова ставит кнопку и подпись рядом
+    @include sm-block {
+      flex-direction: row;
+      width: auto;
+    }
+
+    @include xs-block {
+      column-gap: var(--Gaps-Gap-40);
+    }
+  }
+
+  &__note {
+    @include text-16;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    // Ряды равной высоты: в макете все шесть карточек одного размера, и кнопки
+    // выстроены в одну линию. С 768 макет отпускает ряды по содержимому
+    grid-auto-rows: 1fr;
+    gap: var(--Gaps-Gap-24);
+
+    @include sm-block {
+      grid-auto-rows: auto;
+    }
+
+    @include xs-block {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
