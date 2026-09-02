@@ -418,6 +418,7 @@ button {
   --Grey-3: #c5c5c5;
   --Grey-4: #b2b2b2;
   --Grey-5: #6c6c6c;
+  --Accents-Red: #ff383c;
   --Gaps-Gap: 0px;
   --Gaps-Gap-10: 10px;
   --Gaps-Gap-18: 18px;
@@ -2291,6 +2292,252 @@ a {
   padding: var(--Gaps-Gap-24);
   background: var(--Grey);
   color: var(--Grey-5);
+}
+
+.about {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) var(--Gaps-Gap-40) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--Gaps-Gap-40);
+  padding-block: var(--Gaps-Gap-100);
+}
+@media screen and (max-width: 767.98px) {
+  .about {
+    -ms-grid-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.about__intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--Gaps-Gap-24);
+}
+.about__tagline {
+  font-family: var(--Font-Family-Font);
+  font-weight: 400;
+  font-size: var(--Font-Size-Font-Size-M);
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--Grey-4);
+}
+.about__text {
+  font-family: var(--Font-Family-Font);
+  font-weight: 400;
+  font-size: var(--Font-Size-Font-Size-XS);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+.about__map {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  min-height: 0;
+}
+@media screen and (max-width: 767.98px) {
+  .about__map {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    aspect-ratio: 355/502;
+  }
+}
+.about__form {
+  display: -ms-grid;
+  display: grid;
+}
+
+.ymap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--Grey-3);
+  border-radius: var(--Radius-Radius-24);
+  background: var(--Grey);
+}
+.ymap__fallback {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ymap__canvas {
+  position: absolute;
+  inset: 0;
+}
+.ymap--ready .ymap__fallback {
+  display: none;
+}
+
+.request-form {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--Gaps-Gap-24);
+  border: 1px solid var(--Grey-3);
+  border-radius: var(--Radius-Radius-24);
+  padding: var(--Gaps-Gap-40);
+  background: var(--White);
+}
+.request-form__text {
+  font-family: var(--Font-Family-Font);
+  font-weight: 300;
+  font-size: var(--Font-Size-Font-Size-S);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+.request-form__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--Gaps-Gap-18);
+}
+.request-form__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--Gaps-Gap-10);
+}
+.request-form__label {
+  font-family: var(--Font-Family-Font);
+  font-weight: 300;
+  font-size: var(--Font-Size-Font-Size-S);
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+.request-form__required {
+  color: #ff5a1f;
+}
+.request-form__input {
+  font-family: var(--Font-Family-Font);
+  font-weight: 400;
+  font-size: var(--Font-Size-Font-Size-XS);
+  line-height: 1.42;
+  letter-spacing: 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  width: 100%;
+  border: 1px solid var(--Grey-3);
+  border-radius: var(--Radius-Radius-10);
+  padding: 18px;
+  background: var(--Grey);
+  color: var(--Black);
+}
+.request-form__input::-webkit-input-placeholder {
+  color: var(--Grey-5);
+}
+.request-form__input::-moz-placeholder {
+  color: var(--Grey-5);
+}
+.request-form__input:-ms-input-placeholder {
+  color: var(--Grey-5);
+}
+.request-form__input::-ms-input-placeholder {
+  color: var(--Grey-5);
+}
+.request-form__input::placeholder {
+  color: var(--Grey-5);
+}
+@media (any-hover: hover) {
+  .request-form__input:hover {
+    border-color: var(--Yellow);
+  }
+}
+@media (any-hover: none) {
+  .request-form__input:active {
+    border-color: var(--Yellow);
+  }
+}
+.request-form__input:focus-visible {
+  border-color: var(--Yellow);
+  outline: none;
+}
+.request-form__input--invalid {
+  border-color: var(--Accents-Red);
+}
+.request-form__error {
+  font-family: var(--Font-Family-Font);
+  font-weight: 400;
+  font-size: var(--Font-Size-Font-Size-XXS);
+  line-height: 1.42;
+  letter-spacing: 0;
+  margin-top: 3px;
+  color: var(--Accents-Red);
+}
+.request-form__error:empty {
+  display: none;
+}
+.request-form__agreement {
+  font-family: var(--Font-Family-Font);
+  font-weight: 400;
+  font-size: var(--Font-Size-Font-Size-XXS);
+  line-height: 1.42;
+  letter-spacing: 0;
+  text-align: center;
+}
+.request-form__errors {
+  font-family: var(--Font-Family-Font);
+  font-weight: 400;
+  font-size: var(--Font-Size-Font-Size-XXS);
+  line-height: 1.42;
+  letter-spacing: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--Gaps-Gap-10);
+  color: var(--Accents-Red);
+}
+.request-form__errors:empty {
+  display: none;
+}
+.request-form__success {
+  font-family: var(--Font-Family-Font);
+  font-weight: 300;
+  font-size: var(--Font-Size-Font-Size-S);
+  line-height: 1.42;
+  letter-spacing: 0;
+  position: absolute;
+  inset: 0;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: var(--Radius-Radius-24);
+  padding: var(--Gaps-Gap-40);
+  background: var(--White);
+  text-align: center;
+}
+.request-form--sent .request-form__success {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .styleguide {

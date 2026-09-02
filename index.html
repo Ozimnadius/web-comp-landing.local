@@ -615,7 +615,69 @@
                     </section>
                 </div>
             </div>
-            <div class="main__about" id="contacts"></div>
+            <div class="main__about" id="contacts">
+                <div class="container">
+                    <section class="about">
+
+                        <div class="about__intro">
+                            <p class="about__tagline">О компании</p>
+                            <h2 class="about__title">Создание сайтов под ключ — наша специализация</h2>
+                            <p class="about__text">Уже более 10 лет мы разрабатываем современные и эффективные веб-ресурсы для компаний, интернет-магазинов и частных предпринимателей. В нашей команде работают дизайнеры, разработчики и маркетологи, которые создают проекты, приносящие реальный результат.</p>
+
+                            <div class="about__map">
+                                <div class="ymap" data-map data-map-lat="55.656825" data-map-lng="37.729456" data-map-caption="ВЕБ-КОМП" data-map-address="109382, Москва, улица Нижние Поля, 31">
+                                    <img class="ymap__fallback" src="/upload/images/about/map-large.webp" alt="Офис студии на улице Нижние Поля, 31 в Москве" width="1141" height="810" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about__form">
+                            <div class="request-form">
+                                <h3 class="request-form__title">Оставить заявку</h3>
+                                <p class="request-form__text">Расскажите пару слов о проекте — свяжемся с вами в течение рабочего дня.</p>
+
+                                <form class="request-form__body" novalidate data-request-form>
+
+                                    <div class="request-form__field">
+                                        <label class="request-form__label" for="request-name">Имя<span class="request-form__required">*</span></label>
+                                        <input class="request-form__input" id="request-name" name="name" type="text" placeholder="Как вас зовут?" autocomplete="name" required>
+                                        <p class="request-form__error" data-error-for="request-name"></p>
+                                    </div>
+
+                                    <div class="request-form__field">
+                                        <label class="request-form__label" for="request-phone">Телефон<span class="request-form__required">*</span></label>
+                                        <input class="request-form__input" id="request-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+                                        <p class="request-form__error" data-error-for="request-phone"></p>
+                                    </div>
+
+                                    <div class="request-form__field">
+                                        <label class="request-form__label" for="request-email">Email</label>
+                                        <input class="request-form__input" id="request-email" name="email" type="email" placeholder="you@mail.ru" autocomplete="email">
+                                        <p class="request-form__error" data-error-for="request-email"></p>
+                                    </div>
+
+                                    <div class="request-form__field">
+                                        <label class="request-form__label" for="request-comment">Комментарий</label>
+                                        <input class="request-form__input" id="request-comment" name="comment" type="text" placeholder="Кратко о проекте">
+                                        <p class="request-form__error" data-error-for="request-comment"></p>
+                                    </div>
+
+                                    <ul class="request-form__errors" data-form-errors role="alert"></ul>
+
+                                    <button class="request-form__submit btn btn--primary btn--block" type="submit">Оставить заявку</button>
+
+                                    <p class="request-form__agreement">Нажимая на кнопку, вы соглашаетесь с политикой обработки данных</p>
+                                </form>
+
+                                <div class="request-form__success" data-form-success role="status" tabindex="-1">
+                                    <p class="text-32">Заявка отправлена. Свяжемся с вами в течение рабочего дня.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </div>
         </main>
 
     </div>

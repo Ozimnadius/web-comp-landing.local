@@ -6,6 +6,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@fancyapps/ui": "^6.1.14",
+    "imask": "^7.6.1",
+    "just-validate": "^4.3.0",
     "normalize.css": "^8.0.1",
     "ozimnad-reset": "^0.1.0",
     "swiper": "^14.2.0"

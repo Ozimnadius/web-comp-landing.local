@@ -1,0 +1,55 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// about
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--Gaps-Gap-40);
+  padding-block: var(--Gaps-Gap-100);
+
+  // Колонки встают друг над другом только на 375: до 768 включительно макет
+  // держит две
+  @include xs-block {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-24);
+  }
+
+  &__tagline {
+    @include tagline-24;
+
+    color: var(--Grey-4);
+  }
+
+  // Text 16 чёрным, а не Text 24 серым, как в других секциях, — поэтому
+  // section-intro тут не подошёл, см. NOTES.md
+  &__text {
+    @include text-16;
+  }
+
+  // Только размер: рамку, радиус и обрезку держит сам блок .ymap. Карта
+  // добирает остаток высоты колонки, а не задаёт его — базис нулевой, иначе
+  // картинка со своей пропорцией растягивала колонку и форма тянулась за ней
+  &__map {
+    flex: 1 1 0;
+    min-height: 0;
+
+    // На 375 колонки не рядом, добирать нечего — с нулевым базисом карта
+    // схлопнулась бы. Пропорция снята с макета
+    @include xs-block {
+      flex: none;
+      aspect-ratio: 355 / 502;
+    }
+  }
+
+  // grid: единственный ребёнок растягивается сам
+  &__form {
+    display: grid;
+  }
+}

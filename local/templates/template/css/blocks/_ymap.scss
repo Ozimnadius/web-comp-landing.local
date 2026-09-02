@@ -1,0 +1,35 @@
+@use "../helpers" as *;
+
+// ymap
+
+.ymap {
+  // Под холст, который модуль кладёт абсолютом
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--Grey-3);
+  border-radius: var(--Radius-Radius-24);
+  background: var(--Grey);
+
+  // Статичная карта из макета. Лежит здесь не для красоты: пока API не
+  // поднялся — а он может и не подняться, — гость видит карту, а не пустоту
+  &__fallback {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Холст создаёт модуль. Абсолютом, чтобы не зависеть от того, осталась
+  // картинка в потоке или нет
+  &__canvas {
+    position: absolute;
+    inset: 0;
+  }
+
+  // Модификатор вешает модуль, когда карта построена
+  &--ready &__fallback {
+    display: none;
+  }
+}

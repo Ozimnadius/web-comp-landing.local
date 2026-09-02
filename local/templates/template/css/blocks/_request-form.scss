@@ -1,0 +1,130 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// request-form
+
+.request-form {
+  // Под накладку успеха
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--Gaps-Gap-24);
+  border: 1px solid var(--Grey-3);
+  border-radius: var(--Radius-Radius-24);
+  padding: var(--Gaps-Gap-40);
+  background: var(--White);
+
+  &__text {
+    @include text-18;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-18);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+  }
+
+  &__label {
+    @include text-18;
+  }
+
+  // Оттенок звёздочки в коллекцию переменных не вынесен и отличается от цвета
+  // ошибки: #ff5a1f против --Accents-Red. См. NOTES.md
+  &__required {
+    color: #ff5a1f;
+  }
+
+  &__input {
+    @include text-16;
+    @include tr;
+
+    width: 100%;
+    border: 1px solid var(--Grey-3);
+    border-radius: var(--Radius-Radius-10);
+    padding: 18px;
+    background: var(--Grey);
+    color: var(--Black);
+
+    &::placeholder {
+      color: var(--Grey-5);
+    }
+
+    @include hover {
+      border-color: var(--Yellow);
+    }
+
+    // Тот же жёлтый, что и на наведении: отдельного состояния фокуса
+    // в макете нет
+    &:focus-visible {
+      border-color: var(--Yellow);
+      outline: none;
+    }
+
+    // Класс вешает just-validate, имя задано в модуле
+    &--invalid {
+      border-color: var(--Accents-Red);
+    }
+  }
+
+  // Контейнер под сообщение об ошибке. Пока пусто — не занимает места:
+  // без этого под каждым полем висела бы пустая строка
+  &__error {
+    @include text-14;
+
+    margin-top: 3px;
+    color: var(--Accents-Red);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__agreement {
+    @include text-14;
+
+    text-align: center;
+  }
+
+  // Ошибки отправки. Их может быть несколько, поэтому список. Стили текста
+  // стоят на контейнере — пункты наследуют, отдельный класс им не нужен
+  &__errors {
+    @include text-14;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+    color: var(--Accents-Red);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  // Накладка, а не замена содержимого: карточка сохраняет высоту, и после
+  // отправки страница не дёргается. Состояния «отправлено» в макете нет —
+  // см. NOTES.md
+  &__success {
+    @include text-18;
+
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--Radius-Radius-24);
+    padding: var(--Gaps-Gap-40);
+    background: var(--White);
+    text-align: center;
+  }
+
+  &--sent &__success {
+    display: flex;
+  }
+}
