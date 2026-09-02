@@ -930,27 +930,9 @@ a {
 
 .hero {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-@media screen and (min-width: 1440px) {
-  .hero {
-    min-height: 100vh;
-  }
 }
 .hero__bg {
   display: block;
-}
-@media screen and (min-width: 1440px) {
-  .hero__bg {
-    position: absolute;
-    inset: 0;
-  }
 }
 @media screen and (max-width: 767.98px) {
   .hero__bg {
@@ -962,19 +944,18 @@ a {
   display: block;
   width: 100%;
   height: auto;
+  min-height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-@media screen and (min-width: 1440px) {
+@media screen and (max-width: 1439.98px) {
   .hero__bg-image {
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
+    min-height: auto;
   }
 }
 @media screen and (max-width: 767.98px) {
   .hero__bg-image {
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
 }
 .hero__content {
@@ -984,22 +965,10 @@ a {
   display: -ms-flexbox;
   display: flex;
 }
-@media screen and (min-width: 1440px) {
-  .hero__content {
-    position: relative;
-    inset: auto;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-  }
-}
 @media screen and (max-width: 767.98px) {
   .hero__content {
     position: relative;
     inset: auto;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
   }
 }
 .hero__inner {
