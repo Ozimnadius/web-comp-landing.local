@@ -97,8 +97,11 @@
     color: var(--White);
   }
 
+  // Тёплое свечение есть только у этой кнопки — см. NOTES.md.
   // В макете размер задан явно: 164x40 на 768 и 375
   &__button {
+    box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
+
     @include sm-block {
       width: 164px;
       height: 40px;

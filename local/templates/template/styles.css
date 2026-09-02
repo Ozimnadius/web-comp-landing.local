@@ -700,8 +700,6 @@ h3,
   border-color: var(--Yellow);
   background: var(--Yellow);
   color: var(--Black);
-  -webkit-box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
-          box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
 }
 @media (any-hover: hover) {
   .btn--primary:hover {
@@ -1067,6 +1065,10 @@ a {
 }
 .hero__title {
   color: var(--White);
+}
+.hero__button {
+  -webkit-box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
+          box-shadow: 0 13.715px 16.458px rgba(255, 90, 31, 0.55);
 }
 @media screen and (max-width: 1199.98px) {
   .hero__button {
