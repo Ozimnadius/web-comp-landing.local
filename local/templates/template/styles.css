@@ -3853,9 +3853,6 @@ a {
   border-bottom: 1px solid var(--Grey-4);
   padding-bottom: var(--Gaps-Gap-24);
 }
-.case-featured__type {
-  text-decoration: none;
-}
 .case-featured__text {
   font-family: var(--Font-Family-Font);
   font-weight: 400;
@@ -4032,8 +4029,6 @@ a {
   font-size: var(--Font-Size-Font-Size-XS);
   line-height: 1.42;
   letter-spacing: 0;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -4047,19 +4042,6 @@ a {
   border-radius: 40px;
   padding: var(--Gaps-Gap-10) var(--Gaps-Gap-18);
   color: var(--Grey-5);
-  text-decoration: none;
-}
-@media (any-hover: hover) {
-  .tag:hover {
-    border-color: var(--Yellow);
-    color: var(--Orange);
-  }
-}
-@media (any-hover: none) {
-  .tag:active {
-    border-color: var(--Yellow);
-    color: var(--Orange);
-  }
 }
 
 .faq {
