@@ -13,30 +13,13 @@
   border: 1px solid var(--Grey-4);
   border-radius: var(--Radius-Radius-16);
   padding: var(--Gaps-Gap-40);
+  color: var(--Black);
+  text-decoration: none;
   overflow: hidden;
 
   @include hover {
     border-color: transparent;
     background: var(--White);
-  }
-
-  &[data-case] {
-    cursor: pointer;
-  }
-
-  &__preview {
-    display: block;
-    width: 100%;
-    border: 0;
-    border-radius: var(--Radius-Radius-10);
-    padding: 0;
-    background: none;
-    cursor: pointer;
-
-    &:focus-visible {
-      outline: 2px solid var(--Yellow);
-      outline-offset: 2px;
-    }
   }
 
   &__image {
@@ -54,6 +37,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--Gaps-Gap-24);
+    color: var(--Black);
   }
 
   &__head {
@@ -84,10 +68,6 @@
     gap: var(--Gaps-Gap-24);
     border-bottom: 1px solid var(--Grey-4);
     padding-bottom: var(--Gaps-Gap-24);
-  }
-
-  &__type {
-    text-decoration: none;
   }
 
   &__text {
