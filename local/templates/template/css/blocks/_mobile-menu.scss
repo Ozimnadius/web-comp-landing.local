@@ -13,7 +13,7 @@
   flex-direction: column;
   width: 375px;
   max-width: 100%;
-  padding-bottom: var(--Gaps-Gap-100);
+  padding-bottom: 20px;
   background: var(--Grey);
   color: var(--Black);
   overflow: hidden auto;
@@ -30,8 +30,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--Gaps-Gap-10);
-    padding: var(--Gaps-Gap-24) var(--Gaps-Gap-10);
+    gap: 10px;
+    padding: 12px 10px;
   }
 
   &__close {
@@ -92,7 +92,7 @@
   }
 
   &__nav {
-    padding-inline: var(--Gaps-Gap-18);
+    padding-inline: 10px;
   }
 
   &__list {
@@ -117,8 +117,8 @@
 
     display: flex;
     align-items: center;
-    gap: var(--Gaps-Gap-18);
-    padding-block: var(--Gaps-Gap-100);
+    gap: 10px;
+    padding-block: 20px;
     color: var(--Black);
 
     @include hover {
@@ -145,9 +145,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: var(--Gaps-Gap-18) var(--Gaps-Gap-40);
-    margin-top: var(--Gaps-Gap-40);
-    padding-inline: var(--Gaps-Gap-18);
+    gap: 10px 30px;
+    margin-top: 30px;
+    padding-inline: 10px;
   }
 
   &__contact {
@@ -162,10 +162,10 @@
   }
 
   &__address {
-    margin-top: var(--Gaps-Gap-40);
-    margin-inline: var(--Gaps-Gap-18);
+    margin-top: 30px;
+    margin-inline: 10px;
     border-top: 1px solid var(--Grey-4);
-    padding-top: var(--Gaps-Gap-40);
+    padding-top: 16px;
   }
 
   &__address-text {
@@ -179,18 +179,18 @@
     display: block;
     width: 100%;
     height: auto;
-    margin-top: var(--Gaps-Gap-24);
+    margin-top: 12px;
   }
 
   &__legal {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--Gaps-Gap-24);
-    margin-top: var(--Gaps-Gap-40);
-    margin-inline: var(--Gaps-Gap-18);
+    gap: 12px;
+    margin-top: 40px;
+    margin-inline: 10px;
     border-top: 1px solid var(--Grey-4);
-    padding-top: var(--Gaps-Gap-40);
+    padding-top: 40px;
   }
 
   &__legal-link {
