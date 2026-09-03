@@ -764,6 +764,245 @@
 
 </div>
 
+<div class="brief" id="brief" data-brief hidden>
+    <form class="brief__form" novalidate data-brief-form>
+
+        <header class="brief__header">
+            <img class="brief__logo" src="/upload/images/icons/logo.svg" alt="ВЕБ-КОМП" width="160" height="30">
+
+            <h2 class="brief__title">Бриф на создание сайта</h2>
+
+            <ol class="brief__steps">
+                <li class="brief__step brief__step--current" aria-current="step" data-brief-step><span class="brief__step-number">1</span></li>
+                <li class="brief__step" data-brief-step><span class="brief__step-number">2</span></li>
+                <li class="brief__step" data-brief-step><span class="brief__step-number">3</span></li>
+                <li class="brief__step" data-brief-step><span class="brief__step-number">4</span></li>
+                <li class="brief__step" data-brief-step><span class="brief__step-number">5</span></li>
+            </ol>
+
+            <button class="brief__close" type="button" data-fancybox-close>Закрыть<span class="brief__close-icon" aria-hidden="true"></span></button>
+        </header>
+
+        <div class="brief__body" data-brief-body>
+
+            <fieldset class="brief__panel" data-brief-panel>
+                <legend class="brief__heading" tabindex="-1">Какой тип сайта Вам нужен?</legend>
+
+                <div class="brief__types">
+                    <div class="brief__type">
+                        <label class="type-card">
+                            <input class="type-card__input" type="radio" name="site_type" value="business-card">
+                            <span class="type-card__title">Сайт визитка</span>
+                            <img class="type-card__image" src="/upload/images/brief/type-business-card.webp" alt="" width="387" height="365" loading="lazy">
+                            <span class="type-card__text">Небольшой сайт, чтобы заявить о себе или об&nbsp;услугах, которые предоставляете</span>
+                        </label>
+                    </div>
+                    <div class="brief__type">
+                        <label class="type-card">
+                            <input class="type-card__input" type="radio" name="site_type" value="corporate">
+                            <span class="type-card__title">Корпоративный сайт</span>
+                            <img class="type-card__image" src="/upload/images/brief/type-corporate.webp" alt="" width="387" height="365" loading="lazy">
+                            <span class="type-card__text">Сайт вашей компании с&nbsp;подробным описанием, чем&nbsp;занимается компания, каковы ее преимущества, какие услуги предоставляет</span>
+                        </label>
+                    </div>
+                    <div class="brief__type">
+                        <label class="type-card">
+                            <input class="type-card__input" type="radio" name="site_type" value="shop">
+                            <span class="type-card__title">Интернет магазин</span>
+                            <img class="type-card__image" src="/upload/images/brief/type-shop.webp" alt="" width="387" height="365" loading="lazy">
+                            <span class="type-card__text">Онлайн площадка для продажи товаров, с&nbsp;возможностью подключения розничных платежных модулей, а также модулей доставки</span>
+                        </label>
+                    </div>
+                    <div class="brief__type">
+                        <label class="type-card">
+                            <input class="type-card__input" type="radio" name="site_type" value="landing">
+                            <span class="type-card__title">Лендинг</span>
+                            <img class="type-card__image" src="/upload/images/brief/type-landing.webp" alt="" width="387" height="365" loading="lazy">
+                            <span class="type-card__text">Одностраничный сайт, подходит для рекламирования в&nbsp;яндекс директ</span>
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="brief__panel" data-brief-panel hidden>
+                <legend class="brief__heading" tabindex="-1">Основная информация</legend>
+
+                <div class="brief__questions">
+                    <div class="brief__question">
+                        <div class="brief__question-head">
+                            <span class="brief__number" aria-hidden="true">01</span>
+                            <label class="brief__label" for="brief-topic">Тематика сайта</label>
+                            <p class="brief__hint" id="brief-topic-hint">Чему будет посвящён ваш сайт? Если есть действующий сайт, укажите его адрес.</p>
+                        </div>
+                        <textarea class="brief__input" id="brief-topic" name="topic" placeholder="Производство мебели на заказ, mebel.ru" aria-describedby="brief-topic-hint"></textarea>
+                    </div>
+                    <div class="brief__question">
+                        <div class="brief__question-head">
+                            <span class="brief__number" aria-hidden="true">02</span>
+                            <label class="brief__label" for="brief-advantages">Преимущества вашей компании</label>
+                            <p class="brief__hint" id="brief-advantages-hint">Перечислите отличия и ключевые моменты, которые важно донести до аудитории.</p>
+                        </div>
+                        <textarea class="brief__input" id="brief-advantages" name="advantages" placeholder="Опыт, сроки, гарантии, особенности продукта..." aria-describedby="brief-advantages-hint"></textarea>
+                    </div>
+                    <div class="brief__question">
+                        <div class="brief__question-head">
+                            <span class="brief__number" aria-hidden="true">03</span>
+                            <label class="brief__label" for="brief-competitors">Ваши конкуренты</label>
+                            <p class="brief__hint" id="brief-competitors-hint">Напишите их названия, сайты, сильные и слабые стороны.</p>
+                        </div>
+                        <textarea class="brief__input" id="brief-competitors" name="competitors" placeholder="Название — сайт — сильные и слабые стороны" aria-describedby="brief-competitors-hint"></textarea>
+                    </div>
+                    <div class="brief__question">
+                        <div class="brief__question-head">
+                            <span class="brief__number" aria-hidden="true">04</span>
+                            <label class="brief__label" for="brief-audience">Целевая аудитория</label>
+                            <p class="brief__hint" id="brief-audience-hint">Страна или регион, возраст, род занятий и примерный доход.</p>
+                        </div>
+                        <textarea class="brief__input" id="brief-audience" name="audience" placeholder="Например: мужчины и женщины 25-45 лет, Москва" aria-describedby="brief-audience-hint"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="brief__panel" data-brief-panel hidden>
+                <legend class="brief__heading" tabindex="-1">Сайты, которые вам нравятся</legend>
+
+                <div class="brief__sites-columns">
+                    <fieldset class="brief__sites brief__sites--like">
+                        <legend class="brief__sites-title"><span class="brief__sites-icon" aria-hidden="true"></span>Нравятся <span class="brief__sites-note">По дизайну и структуре</span></legend>
+
+                        <div class="brief__site">
+                            <span class="brief__number" aria-hidden="true">01</span>
+                            <input class="brief__input brief__input--site" name="like[1][site]" type="url" placeholder="site.ru" aria-label="Адрес сайта, который нравится">
+                            <textarea class="brief__input" name="like[1][note]" placeholder="Что нравится или не нравится" aria-label="Комментарий"></textarea>
+                        </div>
+                        <div class="brief__site">
+                            <span class="brief__number" aria-hidden="true">02</span>
+                            <input class="brief__input brief__input--site" name="like[2][site]" type="url" placeholder="site.ru" aria-label="Адрес сайта, который нравится">
+                            <textarea class="brief__input" name="like[2][note]" placeholder="Что нравится или не нравится" aria-label="Комментарий"></textarea>
+                        </div>
+                        <div class="brief__site">
+                            <span class="brief__number" aria-hidden="true">03</span>
+                            <input class="brief__input brief__input--site" name="like[3][site]" type="url" placeholder="site.ru" aria-label="Адрес сайта, который нравится">
+                            <textarea class="brief__input" name="like[3][note]" placeholder="Что нравится или не нравится" aria-label="Комментарий"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="brief__sites brief__sites--dislike">
+                        <legend class="brief__sites-title"><span class="brief__sites-icon" aria-hidden="true"></span>Не нравятся <span class="brief__sites-note">По дизайну и структуре</span></legend>
+
+                        <div class="brief__site">
+                            <span class="brief__number" aria-hidden="true">01</span>
+                            <input class="brief__input brief__input--site" name="dislike[1][site]" type="url" placeholder="site.ru" aria-label="Адрес сайта, который не нравится">
+                            <textarea class="brief__input" name="dislike[1][note]" placeholder="Что нравится или не нравится" aria-label="Комментарий"></textarea>
+                        </div>
+                        <div class="brief__site">
+                            <span class="brief__number" aria-hidden="true">02</span>
+                            <input class="brief__input brief__input--site" name="dislike[2][site]" type="url" placeholder="site.ru" aria-label="Адрес сайта, который не нравится">
+                            <textarea class="brief__input" name="dislike[2][note]" placeholder="Что нравится или не нравится" aria-label="Комментарий"></textarea>
+                        </div>
+                        <div class="brief__site">
+                            <span class="brief__number" aria-hidden="true">03</span>
+                            <input class="brief__input brief__input--site" name="dislike[3][site]" type="url" placeholder="site.ru" aria-label="Адрес сайта, который не нравится">
+                            <textarea class="brief__input" name="dislike[3][note]" placeholder="Что нравится или не нравится" aria-label="Комментарий"></textarea>
+                        </div>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <fieldset class="brief__panel brief__panel--promo" data-brief-panel hidden>
+                <legend class="brief__heading" tabindex="-1">Продвижение и реклама</legend>
+
+                <img class="brief__illustration" src="/upload/images/brief/promotion.webp" alt="" width="904" height="836" loading="lazy">
+
+                <div class="brief__polls">
+                    <fieldset class="brief__poll">
+                        <legend class="brief__poll-title"><span class="brief__number" aria-hidden="true">01</span>Планируете ли вы продвижение сайта?</legend>
+                        <div class="brief__poll-options">
+                            <label class="brief__radio">
+                                <input class="brief__radio-input" type="radio" name="promotion" value="yes">
+                                <span class="brief__radio-mark" aria-hidden="true"></span>
+                                <span class="brief__radio-text">Да, хочу продвигаться</span>
+                            </label>
+                            <label class="brief__radio">
+                                <input class="brief__radio-input" type="radio" name="promotion" value="no">
+                                <span class="brief__radio-mark" aria-hidden="true"></span>
+                                <span class="brief__radio-text">Нет, мне это не интересно</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="brief__poll">
+                        <legend class="brief__poll-title"><span class="brief__number" aria-hidden="true">02</span>Планируете ли вы рекламу в Яндекс Директе?</legend>
+                        <div class="brief__poll-options">
+                            <label class="brief__radio">
+                                <input class="brief__radio-input" type="radio" name="direct" value="yes">
+                                <span class="brief__radio-mark" aria-hidden="true"></span>
+                                <span class="brief__radio-text">Да, хочу продвигаться</span>
+                            </label>
+                            <label class="brief__radio">
+                                <input class="brief__radio-input" type="radio" name="direct" value="no">
+                                <span class="brief__radio-mark" aria-hidden="true"></span>
+                                <span class="brief__radio-text">Нет, мне это не интересно</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <fieldset class="brief__panel" data-brief-panel hidden>
+                <legend class="brief__heading" tabindex="-1">Контактная информация</legend>
+
+                <div class="brief__contacts">
+                    <div class="brief__field">
+                        <label class="brief__label" for="brief-name">Ваше имя<span class="brief__required">*</span></label>
+                        <input class="brief__input" id="brief-name" name="name" type="text" placeholder="Как к Вам обращаться?" autocomplete="name" required>
+                        <p class="brief__error" data-error-for="brief-name"></p>
+                    </div>
+                    <div class="brief__field">
+                        <label class="brief__label" for="brief-phone">Телефон<span class="brief__required">*</span></label>
+                        <input class="brief__input" id="brief-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+                        <p class="brief__error" data-error-for="brief-phone"></p>
+                    </div>
+                    <div class="brief__field">
+                        <label class="brief__label" for="brief-email">Эл. почта<span class="brief__required">*</span></label>
+                        <input class="brief__input" id="brief-email" name="email" type="email" placeholder="Ваша электронная почта" autocomplete="email" required>
+                        <p class="brief__error" data-error-for="brief-email"></p>
+                    </div>
+                    <div class="brief__field brief__field--wide">
+                        <label class="brief__label" for="brief-comment">Дополнительная информация</label>
+                        <textarea class="brief__input" id="brief-comment" name="comment" placeholder="Расскажите всё, что еще важно учесть"></textarea>
+
+                        <label class="brief__checkbox">
+                            <input class="brief__checkbox-input" id="brief-consent" type="checkbox" name="consent" value="1" required>
+                            <span class="brief__checkbox-mark" aria-hidden="true"></span>
+                            <span class="brief__checkbox-text">Даю согласие на обработку персональных данных, согласен с политикой конфиденциальности.</span>
+                        </label>
+                        <p class="brief__error" data-error-for="brief-consent"></p>
+                    </div>
+                </div>
+
+                <ul class="brief__errors" data-form-errors role="alert"></ul>
+            </fieldset>
+
+            <div class="brief__done" data-brief-done role="status" tabindex="-1" hidden>
+                <img class="brief__done-image" src="/upload/images/brief/done.webp" alt="" width="713" height="582" loading="lazy">
+                <h3 class="brief__done-title">Спасибо, <span data-brief-name></span>!</h3>
+                <p class="brief__done-text">Ответы собраны. Мы изучим задачу и свяжемся с вами по указанному номеру телефона.</p>
+                <button class="brief__again btn btn--primary btn--compact" type="reset">Заполнить еще раз</button>
+            </div>
+
+        </div>
+
+        <footer class="brief__footer" data-brief-footer>
+            <button class="brief__prev" type="button" data-brief-prev disabled><span class="brief__chevron" aria-hidden="true"></span>Назад</button>
+            <p class="brief__note">Можно вернуться и изменить ответы</p>
+            <button class="brief__next" type="button" data-brief-next>Вперед<span class="brief__chevron brief__chevron--forward" aria-hidden="true"></span></button>
+            <button class="brief__submit btn btn--primary btn--compact" type="submit" data-brief-submit hidden>Отправить бриф</button>
+        </footer>
+
+    </form>
+</div>
+
 <script src="/local/templates/template/js/scripts.min.js" defer></script>
 </body>
 </html>
