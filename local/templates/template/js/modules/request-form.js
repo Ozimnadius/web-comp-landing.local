@@ -1,9 +1,7 @@
 import JustValidate from "just-validate";
 import IMask from "imask";
 
-// Маска и проверка должны совпадать: регулярка описывает то, что маска выдаёт
-const PHONE_MASK = "+{7} (000) 000-00-00";
-const PHONE_RE = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+import { PHONE_MASK, PHONE_RE } from "./phone";
 
 const REQUIRED = "Обязательно к заполнению";
 
@@ -41,7 +39,7 @@ export function requestForm(selector = "[data-request-form]") {
     })
     .onSuccess((event) => {
       event.preventDefault();
-      showErrors([]);
+      showErrors(form, []);
 
       // TODO: здесь встанет отправка, когда появится бэкенд. На Битриксе форму
       // заменит компонент со своей отправкой. Ветка ошибок написана заранее:
@@ -52,8 +50,8 @@ export function requestForm(selector = "[data-request-form]") {
 }
 
 // Список, а не одна строка: сервер может вернуть несколько замечаний разом
-function showErrors(messages) {
-  const box = document.querySelector("[data-form-errors]");
+function showErrors(form, messages) {
+  const box = form.querySelector("[data-form-errors]");
 
   if (!box) return;
 
