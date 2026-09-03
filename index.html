@@ -25,7 +25,7 @@
                 <div class="header__inner">
 
                     <div class="header__brand">
-                        <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="header-nav">
+                        <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" data-mobile-menu-open>
                             <span class="header__burger-icon" aria-hidden="true"></span>
                         </button>
 
@@ -418,8 +418,6 @@
                             </div>
 
                             <p class="portfolio__text">Несколько проектов, которые мы запустили для наших клиентов.</p>
-
-                            <a class="portfolio__link" href="#">Смотреть все кейсы</a>
                         </div>
 
                         <div class="portfolio__featured">
@@ -461,8 +459,10 @@
                         <div class="portfolio__list">
 
                             <div class="portfolio__item">
-                                <div class="case-card">
-                                    <img class="case-card__image" src="/upload/images/portfolio/lingua-large.webp" alt="Сайт образовательного центра Lingua Planet" width="1098" height="796" loading="lazy">
+                                <div class="case-card" data-case="#case-lingua">
+                                    <button class="case-card__preview" type="button" aria-label="Показать сайт Lingua Planet целиком">
+                                        <img class="case-card__image" src="/upload/images/portfolio/lingua-large.webp" alt="Сайт образовательного центра Lingua Planet" width="1098" height="796" loading="lazy">
+                                    </button>
 
                                     <div class="case-card__body">
                                         <div class="case-card__head">
@@ -490,8 +490,10 @@
                             </div>
 
                             <div class="portfolio__item">
-                                <div class="case-card">
-                                    <img class="case-card__image case-card__image--long" src="/upload/images/portfolio/maxirolls-long.webp" alt="Сайт сети ресторанов Maxi Rolls" width="1921" height="3996" loading="lazy">
+                                <div class="case-card" data-case="#case-maxirolls">
+                                    <button class="case-card__preview" type="button" aria-label="Показать сайт Maxi Rolls целиком">
+                                        <img class="case-card__image case-card__image--long" src="/upload/images/portfolio/maxirolls-long.webp" alt="Сайт сети ресторанов Maxi Rolls" width="1921" height="3996" loading="lazy">
+                                    </button>
 
                                     <div class="case-card__body">
                                         <div class="case-card__head">
@@ -519,8 +521,10 @@
                             </div>
 
                             <div class="portfolio__item">
-                                <div class="case-card">
-                                    <img class="case-card__image" src="/upload/images/portfolio/olato-large.webp" alt="Интернет-магазин Olato" width="1720" height="1476" loading="lazy">
+                                <div class="case-card" data-case="#case-olato">
+                                    <button class="case-card__preview" type="button" aria-label="Показать сайт Olato целиком">
+                                        <img class="case-card__image" src="/upload/images/portfolio/olato-large.webp" alt="Интернет-магазин Olato" width="1720" height="1476" loading="lazy">
+                                    </button>
 
                                     <div class="case-card__body">
                                         <div class="case-card__head">
@@ -762,6 +766,80 @@
         </footer>
     </div>
 
+</div>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню" data-mobile-menu hidden>
+
+    <div class="mobile-menu__header">
+        <button class="mobile-menu__close" type="button" data-mobile-menu-close aria-label="Закрыть меню"><span class="mobile-menu__close-icon" aria-hidden="true"></span></button>
+
+        <a class="mobile-menu__logo" href="/">
+            <img class="mobile-menu__logo-image" src="/upload/images/icons/logo-dark.svg" alt="ВЕБ-КОМП" width="112" height="20">
+        </a>
+
+        <a class="mobile-menu__phone" href="tel:+79991234567" aria-label="Позвонить +7 (999) 123-45-67"><span class="mobile-menu__phone-icon" aria-hidden="true"></span></a>
+
+        <button class="mobile-menu__brief btn btn--outline" type="button" data-brief-open>Заполнить бриф</button>
+    </div>
+
+    <nav class="mobile-menu__nav" aria-label="Разделы сайта">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="#prices">Цены</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="#advantages">Преимущества</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="#portfolio">Примеры работ</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="#faq">Вопросы</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="#contacts">Контакты</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="#">Написать в Telegram<span class="mobile-menu__social-icon mobile-menu__social-icon--telegram" aria-hidden="true"></span></a>
+            </li>
+            <li class="mobile-menu__item">
+                <a class="mobile-menu__link" href="#">Написать в Max<span class="mobile-menu__social-icon mobile-menu__social-icon--max" aria-hidden="true"></span></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="mobile-menu__contacts">
+        <a class="mobile-menu__contact" href="tel:+79991234567">+7 (999) 123-45-67</a>
+        <a class="mobile-menu__contact" href="mailto:info@web-komp.ru">info@web-komp.ru</a>
+    </div>
+
+    <div class="mobile-menu__address">
+        <address class="mobile-menu__address-text">109382, г. Москва, ул. Нижние Поля, 31</address>
+
+        <img class="mobile-menu__watermark" src="/upload/images/icons/footer-logo-watermark.svg" alt="" width="1770" height="335" loading="lazy">
+    </div>
+
+    <div class="mobile-menu__legal">
+        <a class="mobile-menu__legal-link" href="#">Политика обработки данных</a>
+        <a class="mobile-menu__legal-link" href="#">Использование cookie</a>
+        <p class="mobile-menu__copyright">© 2026 ООО "ВЕБ-КОМП" Все права защищены.</p>
+    </div>
+
+</div>
+
+<div class="case-lightbox" id="case-lingua" hidden>
+    <img class="case-lightbox__image" src="/upload/images/portfolio/lingua-full.webp" alt="Сайт образовательного центра Lingua Planet целиком" width="1192" height="4096" loading="lazy">
+    <button class="case-lightbox__close" type="button" data-fancybox-close aria-label="Закрыть"><span class="case-lightbox__close-icon" aria-hidden="true"></span></button>
+</div>
+
+<div class="case-lightbox" id="case-maxirolls" hidden>
+    <img class="case-lightbox__image" src="/upload/images/portfolio/maxirolls-long.webp" alt="Сайт сети ресторанов Maxi Rolls целиком" width="1921" height="3996" loading="lazy">
+    <button class="case-lightbox__close" type="button" data-fancybox-close aria-label="Закрыть"><span class="case-lightbox__close-icon" aria-hidden="true"></span></button>
+</div>
+
+<div class="case-lightbox" id="case-olato" hidden>
+    <img class="case-lightbox__image" src="/upload/images/portfolio/olato-full.webp" alt="Интернет-магазин Olato целиком" width="1484" height="4096" loading="lazy">
+    <button class="case-lightbox__close" type="button" data-fancybox-close aria-label="Закрыть"><span class="case-lightbox__close-icon" aria-hidden="true"></span></button>
 </div>
 
 <div class="brief" id="brief" data-brief hidden>

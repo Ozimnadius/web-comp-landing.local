@@ -41,13 +41,6 @@
     color: var(--Grey-5);
   }
 
-  &__link {
-    @include link-24;
-
-    color: var(--Orange);
-    white-space: nowrap;
-  }
-
   &__featured {
     display: grid;
   }
