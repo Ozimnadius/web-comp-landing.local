@@ -1,0 +1,63 @@
+@use "../helpers" as *;
+
+// case-lightbox
+
+.case-lightbox {
+  position: relative;
+  width: 1024px;
+  max-width: 100%;
+  margin-inline: auto;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--Radius-Radius-24);
+  }
+
+  &__close {
+    @include tr;
+
+    position: absolute;
+    top: var(--Gaps-Gap-10);
+    right: var(--Gaps-Gap-40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+    background: var(--White);
+    box-shadow: 0 2px 14px rgb(0 0 0 / 25%);
+    color: var(--Black);
+    cursor: pointer;
+
+    @include hover {
+      color: var(--Orange);
+    }
+  }
+
+  &__close-icon {
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    mask: url("/upload/images/icons/close.svg") center / contain no-repeat;
+  }
+}
+
+// Fancybox: контейнер лайтбокса, класс приходит через mainClass
+.case-modal {
+  --fancybox-backdrop-bg: rgb(0 0 0 / 30%);
+  --f-html-padding: 0;
+  --f-html-bg: transparent;
+
+  .fancybox__slide.has-html {
+    padding: var(--Gaps-Gap-100) var(--Gaps-Gap-75);
+  }
+}

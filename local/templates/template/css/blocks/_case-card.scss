@@ -20,6 +20,25 @@
     background: var(--White);
   }
 
+  &[data-case] {
+    cursor: pointer;
+  }
+
+  &__preview {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: var(--Radius-Radius-10);
+    padding: 0;
+    background: none;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--Yellow);
+      outline-offset: 2px;
+    }
+  }
+
   &__image {
     width: 100%;
     height: auto;

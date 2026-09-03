@@ -1,0 +1,215 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// mobile-menu
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  max-width: 100%;
+  padding-bottom: var(--Gaps-Gap-100);
+  background: var(--Grey);
+  color: var(--Black);
+  overflow: hidden auto;
+
+  @include xs-block {
+    width: 100%;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-10);
+    padding: var(--Gaps-Gap-24) var(--Gaps-Gap-10);
+  }
+
+  &__close {
+    @include tr;
+
+    flex-shrink: 0;
+    border: 0;
+    padding: 0;
+    background: none;
+    color: var(--Black);
+    cursor: pointer;
+
+    @include hover {
+      color: var(--Orange);
+    }
+  }
+
+  &__close-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask: url("/upload/images/icons/close.svg") center / contain no-repeat;
+  }
+
+  &__logo {
+    display: block;
+    flex-shrink: 0;
+    margin-right: auto;
+  }
+
+  &__logo-image {
+    width: 107px;
+    height: auto;
+  }
+
+  &__phone {
+    @include tr;
+
+    flex-shrink: 0;
+    color: var(--Black);
+
+    @include hover {
+      color: var(--Orange);
+    }
+  }
+
+  &__phone-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask: url("/upload/images/icons/phone.svg") center / contain no-repeat;
+  }
+
+  &__brief {
+    flex-shrink: 0;
+  }
+
+  &__nav {
+    padding-inline: var(--Gaps-Gap-18);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    border-top: 1px solid var(--Grey-4);
+
+    &:last-child {
+      border-bottom: 1px solid var(--Grey-4);
+    }
+  }
+
+  &__link {
+    @include text-32;
+    @include tr;
+
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-18);
+    padding-block: var(--Gaps-Gap-100);
+    color: var(--Black);
+
+    @include hover {
+      color: var(--Orange);
+    }
+  }
+
+  &__social-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background-color: var(--Yellow);
+
+    &--telegram {
+      mask: url("/upload/images/icons/social-telegram.svg") center / contain no-repeat;
+    }
+
+    &--max {
+      mask: url("/upload/images/icons/social-max.svg") center / contain no-repeat;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-18) var(--Gaps-Gap-40);
+    margin-top: var(--Gaps-Gap-40);
+    padding-inline: var(--Gaps-Gap-18);
+  }
+
+  &__contact {
+    @include text-32;
+    @include tr;
+
+    color: var(--Black);
+
+    @include hover {
+      color: var(--Orange);
+    }
+  }
+
+  &__address {
+    margin-top: var(--Gaps-Gap-40);
+    margin-inline: var(--Gaps-Gap-18);
+    border-top: 1px solid var(--Grey-4);
+    padding-top: var(--Gaps-Gap-40);
+  }
+
+  &__address-text {
+    @include text-24;
+
+    font-style: normal;
+    text-align: right;
+  }
+
+  &__watermark {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: var(--Gaps-Gap-24);
+  }
+
+  &__legal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Gaps-Gap-24);
+    margin-top: var(--Gaps-Gap-40);
+    margin-inline: var(--Gaps-Gap-18);
+    border-top: 1px solid var(--Grey-4);
+    padding-top: var(--Gaps-Gap-40);
+  }
+
+  &__legal-link {
+    @include text-24;
+    @include tr;
+
+    color: var(--Black);
+
+    @include hover {
+      color: var(--Orange);
+    }
+  }
+
+  &__copyright {
+    @include text-24;
+  }
+}
+
+// Пока меню открыто, страница под ним не прокручивается
+body:has(.mobile-menu:not([hidden])) {
+  overflow: hidden;
+}
