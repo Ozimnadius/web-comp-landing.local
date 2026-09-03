@@ -100,6 +100,15 @@
     @include btn-light;
   }
 
+  // Компактная: кегль 16 без капса, паддинг Gap-10 / Gap-18 — кнопки брифа, узел 5849:8755
+  &--compact {
+    @include text-16;
+
+    --btn-padding: var(--Gaps-Gap-10) var(--Gaps-Gap-18);
+
+    line-height: 1;
+    text-transform: none;
+  }
   &--block {
     width: 100%;
   }

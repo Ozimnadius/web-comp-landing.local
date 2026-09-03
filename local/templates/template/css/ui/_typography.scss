@@ -115,6 +115,16 @@
   letter-spacing: 0;
 }
 
+// Text 12 — именованного стиля в макете нет, кегль XXXS. Подсказки, подписи и поля брифа —
+// https://www.figma.com/design/1lQxYxZfvOiCg1IrwC4f9X/Web-Comp---Landing--01.09.2026-?node-id=5846-5447
+@mixin text-12 {
+  font-family: var(--Font-Family-Font);
+  font-weight: 300;
+  font-size: var(--Font-Size-Font-Size-XXXS);
+  line-height: 1.32;
+  letter-spacing: 0;
+}
+
 h1,
 .h1 {
   @include h1;
@@ -164,4 +174,8 @@ h3,
 
 .text-14 {
   @include text-14;
+}
+
+.text-12 {
+  @include text-12;
 }

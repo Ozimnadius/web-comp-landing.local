@@ -1,0 +1,839 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// brief
+
+.brief {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  max-width: 100%;
+  height: 600px;
+  max-height: 100%;
+  border-radius: var(--Radius-Radius-24);
+  background: var(--White);
+  color: var(--Black);
+  overflow: hidden;
+
+  @include xs-block {
+    width: 100%;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+  }
+
+  &--done &__steps,
+  &--done &__title {
+    display: none;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: 100%;
+  }
+
+  // Шапка
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-10);
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--Grey-2);
+    padding: var(--Gaps-Gap-18);
+
+    @include xs-block {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "logo close"
+        "title title"
+        "steps steps";
+      row-gap: var(--Gaps-Gap-18);
+    }
+  }
+
+  &__logo {
+    width: 112px;
+    height: auto;
+    grid-area: logo;
+  }
+
+  &__title {
+    @include h2;
+
+    display: none;
+    text-align: center;
+    grid-area: title;
+
+    @include xs-block {
+      display: block;
+    }
+  }
+
+  &__steps {
+    display: flex;
+    align-items: center;
+    width: 296px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    grid-area: steps;
+
+    @include xs-block {
+      width: 100%;
+    }
+  }
+
+  &__step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+
+    &:first-child {
+      flex: 0 0 auto;
+    }
+
+    &::before {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background: var(--Grey-2);
+    }
+
+    &:first-child::before {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 4px;
+      display: none;
+      width: 18px;
+      height: 18px;
+      background-color: var(--Black);
+      mask: url("/upload/images/icons/check-bold.svg") center / contain no-repeat;
+      translate: 0 -50%;
+    }
+
+    &--done::before {
+      background: var(--Yellow);
+    }
+
+    &--done::after {
+      display: block;
+    }
+
+    &--done &-number {
+      background: var(--Yellow);
+      color: transparent;
+    }
+
+    &--current &-number {
+      border-color: var(--Yellow);
+      background: var(--White);
+      color: var(--Black);
+    }
+  }
+
+  &__step-number {
+    @include text-16;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: var(--Grey-2);
+    color: var(--Grey-5);
+  }
+
+  &__close {
+    @include text-16;
+    @include tr;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    border: 0;
+    padding: 0;
+    background: none;
+    color: var(--Grey-3);
+    cursor: pointer;
+    grid-area: close;
+
+    @include hover {
+      color: var(--Orange);
+    }
+  }
+
+  &__close-icon {
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask: url("/upload/images/icons/close-circle.svg") center / contain no-repeat;
+  }
+
+  // Тело
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    padding: var(--Gaps-Gap-24);
+    background: var(--Grey);
+    overflow-y: auto;
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Gaps-Gap-18);
+    width: 100%;
+    min-width: 0;
+    margin: auto;
+    border: 0;
+    padding: 0;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__heading {
+    @include tagline-24;
+
+    float: left;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__number {
+    @include text-16;
+
+    color: var(--Orange);
+  }
+
+  // Поле
+
+  &__input {
+    @include text-12;
+    @include tr;
+
+    width: 100%;
+    border: 1px solid var(--Grey-3);
+    border-radius: var(--Radius-Radius-10);
+    padding: var(--Gaps-Gap-10);
+    background: var(--Grey);
+    color: var(--Black);
+
+    &::placeholder {
+      color: var(--Grey-5);
+    }
+
+    &:is(textarea) {
+      min-height: calc(2lh + 2 * var(--Gaps-Gap-10));
+      resize: vertical;
+    }
+
+    @include hover {
+      border-color: var(--Yellow);
+    }
+
+    &:focus-visible {
+      border-color: var(--Yellow);
+      outline: none;
+    }
+
+    &--invalid {
+      border-color: var(--Accents-Red);
+    }
+  }
+
+  // Шаг 1: тип сайта
+
+  &__types {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: end;
+    gap: var(--Gaps-Gap-18);
+    width: 100%;
+
+    @include sm-block {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include xs-block {
+      grid-template-columns: 1fr;
+      gap: var(--Gaps-Gap-10);
+    }
+  }
+
+  // Шаг 2: основная информация
+
+  &__questions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--Radius-Radius-10);
+    overflow: hidden;
+  }
+
+  &__question {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--Gaps-Gap-10);
+    border-bottom: 1px solid var(--Grey-2);
+    padding: var(--Gaps-Gap-18);
+    background: var(--White);
+
+    @include xs-block {
+      flex-direction: column;
+    }
+
+    .brief__input {
+      flex: 1 1 52%;
+    }
+  }
+
+  &__question-head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    flex: 1 1 48%;
+  }
+
+  &__label {
+    @include text-16;
+  }
+
+  &__hint {
+    @include text-12;
+
+    color: var(--Grey-5);
+    grid-column: 1 / -1;
+  }
+
+  // Шаг 3: сайты, которые нравятся
+
+  &__sites-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--Gaps-Gap-10);
+    width: 100%;
+
+    @include xs-block {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__sites {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    border: 0;
+    border-radius: var(--Radius-Radius-10);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &__sites-title {
+    @include text-16;
+
+    float: left;
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    width: 100%;
+    border-bottom: 1px solid var(--Grey-2);
+    padding: var(--Gaps-Gap-18) var(--Gaps-Gap-10);
+    background: var(--White);
+  }
+
+  &__sites-note {
+    @include text-12;
+
+    color: var(--Grey-5);
+  }
+
+  &__sites-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      background-color: var(--Black);
+    }
+  }
+
+  &__sites--like &__sites-icon {
+    background: var(--Yellow);
+
+    &::before {
+      width: 14px;
+      height: 14px;
+      mask: url("/upload/images/icons/check-bold.svg") center / contain no-repeat;
+    }
+  }
+
+  &__sites--dislike &__sites-icon {
+    background: var(--Grey-2);
+
+    &::before {
+      width: 16px;
+      height: 16px;
+      mask: url("/upload/images/icons/minus.svg") center / contain no-repeat;
+    }
+  }
+
+  &__site {
+    display: grid;
+    grid-template-columns: auto 121px 1fr;
+    align-items: start;
+    gap: var(--Gaps-Gap-10);
+    border-bottom: 1px solid var(--Grey-2);
+    padding: var(--Gaps-Gap-10);
+    background: var(--White);
+
+    @include xs-block {
+      grid-template-columns: auto 1fr;
+    }
+
+    .brief__number {
+      @include text-12;
+
+      font-weight: 500;
+      margin-top: var(--Gaps-Gap-10);
+    }
+
+    .brief__input:is(textarea) {
+      min-height: calc(3lh + 2 * var(--Gaps-Gap-10));
+
+      @include xs-block {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  // Шаг 4: продвижение и реклама
+
+  &__panel--promo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "image heading"
+      "image polls";
+    align-items: center;
+    gap: var(--Gaps-Gap-18) var(--Gaps-Gap-24);
+
+    @include xs-block {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "heading"
+        "image"
+        "polls";
+    }
+
+    .brief__heading {
+      text-align: left;
+      grid-area: heading;
+      align-self: end;
+
+      @include xs-block {
+        text-align: center;
+      }
+    }
+  }
+
+  &__illustration {
+    width: 100%;
+    height: auto;
+    grid-area: image;
+  }
+
+  &__polls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+    grid-area: polls;
+    align-self: start;
+  }
+
+  &__poll {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-18);
+    min-width: 0;
+    margin: 0;
+    border: 0;
+    border-radius: var(--Radius-Radius-10);
+    padding: var(--Gaps-Gap-24);
+    background: var(--White);
+  }
+
+  &__poll-title {
+    @include text-16;
+
+    float: left;
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-18);
+    width: 100%;
+    padding: 0;
+
+    .brief__number {
+      @include text-12;
+
+      font-weight: 500;
+    }
+  }
+
+  &__poll-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--Gaps-Gap-18);
+  }
+
+  &__radio {
+    @include text-12;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    color: var(--Grey-5);
+    cursor: pointer;
+  }
+
+  &__radio-input {
+    @include visually-hidden;
+  }
+
+  &__radio-mark {
+    position: relative;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      @include tr;
+
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      inset: 0;
+      background-color: var(--Grey-5);
+      mask: url("/upload/images/icons/radio-blank.svg") center / contain no-repeat;
+    }
+
+    &::after {
+      inset: 5px;
+      border-radius: 50%;
+      background: var(--Orange);
+      scale: 0;
+    }
+  }
+
+  &__radio-input:checked + &__radio-mark::before {
+    background-color: var(--Orange);
+  }
+
+  &__radio-input:checked + &__radio-mark::after {
+    scale: 1;
+  }
+
+  &__radio-input:focus-visible + &__radio-mark {
+    outline: 2px solid var(--Yellow);
+    outline-offset: 2px;
+  }
+
+  // Шаг 5: контакты
+
+  &__contacts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    border-radius: var(--Radius-Radius-10);
+    overflow: hidden;
+
+    @include xs-block {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+    min-width: 0;
+    border-bottom: 1px solid var(--Grey-2);
+    padding: var(--Gaps-Gap-24);
+    background: var(--White);
+
+    &--wide {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__required {
+    color: var(--Orange);
+  }
+
+  &__error {
+    @include text-12;
+
+    color: var(--Accents-Red);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__errors {
+    @include text-12;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Gaps-Gap-10);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--Accents-Red);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__checkbox {
+    @include text-12;
+
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    color: var(--Grey-5);
+    cursor: pointer;
+  }
+
+  &__checkbox-input {
+    @include visually-hidden;
+  }
+
+  &__checkbox-mark {
+    position: relative;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+
+    &::before,
+    &::after {
+      @include tr;
+
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      inset: 3px;
+      border: 2px solid var(--Grey-5);
+      border-radius: 2px;
+    }
+
+    &::after {
+      inset: 0;
+      background-color: var(--Orange);
+      mask: url("/upload/images/icons/checkbox-marked.svg") center / contain no-repeat;
+      opacity: 0;
+    }
+  }
+
+  &__checkbox-input:checked + &__checkbox-mark::before {
+    opacity: 0;
+  }
+
+  &__checkbox-input:checked + &__checkbox-mark::after {
+    opacity: 1;
+  }
+
+  &__checkbox-input--invalid + &__checkbox-mark::before {
+    border-color: var(--Accents-Red);
+  }
+
+  &__checkbox-input:focus-visible + &__checkbox-mark {
+    outline: 2px solid var(--Yellow);
+    outline-offset: 2px;
+  }
+
+  // Экран «Спасибо»
+
+  &__done {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__done-image {
+    width: 356px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__done-title {
+    @include h3;
+  }
+
+  &__done-text {
+    @include text-18;
+
+    max-width: 441px;
+    color: var(--Grey-5);
+  }
+
+  // Подвал
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--Gaps-Gap-10);
+    flex-shrink: 0;
+    border-top: 1px solid var(--Grey-2);
+    padding: var(--Gaps-Gap-18);
+
+    &[hidden] {
+      display: none;
+    }
+
+    @include xs-block {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__prev,
+  &__next {
+    @include text-16;
+    @include tr;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    border: 0;
+    padding: 0;
+    background: none;
+    color: var(--Black);
+    cursor: pointer;
+
+    @include hover {
+      color: var(--Orange);
+    }
+
+    &:disabled {
+      color: var(--Grey-3);
+      cursor: default;
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__chevron {
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
+    mask: url("/upload/images/icons/chevron-left.svg") center / contain no-repeat;
+
+    &--forward {
+      scale: -1 1;
+    }
+  }
+
+  &__note {
+    @include text-16;
+
+    display: flex;
+    align-items: center;
+    gap: var(--Gaps-Gap-10);
+    margin-right: auto;
+    color: var(--Grey-3);
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--Grey-3);
+    }
+
+    @include xs-block {
+      order: 3;
+      justify-content: center;
+      width: 100%;
+      margin-right: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__prev:not(:disabled) + &__note::before {
+    background: var(--Orange);
+  }
+
+  &__submit[hidden] {
+    display: none;
+  }
+}
+
+// Fancybox: контейнер брифа, класс приходит через mainClass
+.brief-modal {
+  --fancybox-backdrop-bg: color-mix(in srgb, var(--Grey-3) 95%, transparent);
+  --f-html-padding: 0;
+  --f-html-bg: transparent;
+
+  .fancybox__slide.has-html {
+    padding: var(--Gaps-Gap-40);
+
+    @include xs-block {
+      padding: 0;
+    }
+  }
+}

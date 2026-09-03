@@ -1,0 +1,64 @@
+@use "../helpers" as *;
+@use "../ui/typography" as *;
+
+// type-card
+
+.type-card {
+  @include tr;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--Gaps-Gap-10);
+  height: 100%;
+  border: 1px solid transparent;
+  border-radius: var(--Radius-Radius-10);
+  padding: var(--Gaps-Gap-18);
+  background: var(--White);
+  cursor: pointer;
+
+  @include sm-block {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-areas:
+      "image title"
+      "image text";
+    align-items: center;
+    column-gap: var(--Gaps-Gap-18);
+    row-gap: var(--Gaps-Gap-10);
+  }
+
+  &:has(.type-card__input:checked) {
+    border-color: var(--Orange);
+  }
+
+  &:has(.type-card__input:focus-visible) {
+    outline: 2px solid var(--Yellow);
+    outline-offset: 2px;
+  }
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__title {
+    @include text-16;
+
+    grid-area: title;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 208 / 196;
+    border-radius: var(--Radius-Radius-10);
+    object-fit: cover;
+    grid-area: image;
+  }
+
+  &__text {
+    @include text-12;
+
+    color: var(--Grey-5);
+    grid-area: text;
+  }
+}
